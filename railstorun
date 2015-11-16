@@ -1,0 +1,4 @@
+#!/bin/bash
+# Script to start our application
+echo "Doing autorun script..."
+cd /var/www/thingspeak@ && rails s -b 192.168.1.202 -p 4000 Puma -d &
