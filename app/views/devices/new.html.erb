@@ -1,0 +1,37 @@
+
+<div class="row">
+  <div class="col-sm-6 col-xs-12">
+
+
+<%= form_for(@newdevice, :url =>{ :action => :create} , :html => { :id => 'loginform', :class => 'form-horizontal' }) do |f| %>
+      <input name='userlogin' class='userlogin' />
+
+      <div class="form-group">
+        <label class="col-sm-4 col-xs-3 control-label"><%= t(:DeviceType) %></label>
+
+        <%= f.select :description, options_for_select(%w[deviceA deviceB deviceC]) %>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-4 col-xs-3 control-label"><%= t(:DeviceName) %></label>
+        <div class="col-sm-8 col-xs-9">
+          <%= f.text_field :name, :class => 'form-control' %>
+         
+        </div>
+      </div>
+     
+       
+    
+
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8 col-xs-offset-3 col-xs-9">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8 col-xs-offset-3 col-xs-9"><p class="form-control-static"><%= f.submit 'Create Device', :class => 'btn btn-primary' %></p></div>
+      </div>
+    <% end %>
+    
+    </div>
+</div>

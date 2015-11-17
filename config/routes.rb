@@ -46,7 +46,7 @@ Thingspeak::Application.routes.draw do
   resource :user_session
   resource 'account', :to => 'users'
   resources :users
-
+  resources :devices
   # social channels
   get 's/' => 'pages#social_home'
   get 's/:slug' => 'channels#social_show', :constraints => { :slug => /.*/ }
