@@ -38,6 +38,8 @@ gem 'tzinfo-data'
 gem 'turbolinks'
 gem 'geokit-rails'
 gem 'clockwork'
+gem 'delayed_job_active_record'
+gem 'daemon-spawn'
 
 # to use debugger
 # gem 'ruby-debug'

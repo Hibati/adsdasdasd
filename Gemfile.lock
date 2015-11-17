@@ -99,9 +99,15 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     cookiejar (0.3.2)
+    daemon-spawn (0.4.2)
     daemons (1.1.9)
     dalli (2.7.2)
     database_cleaner (1.2.0)
+    delayed_job (4.1.1)
+      activesupport (>= 3.0, < 5.0)
+    delayed_job_active_record (4.1.0)
+      activerecord (>= 3.0, < 5)
+      delayed_job (>= 3.0, < 5)
     devise (3.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -374,9 +380,11 @@ DEPENDENCIES
   chronic
   clockwork
   coffee-rails (~> 4.0)
+  daemon-spawn
   daemons
   dalli
   database_cleaner (~> 1.2.0)
+  delayed_job_active_record
   devise
   dynamic_form
   em-http-request
@@ -417,3 +425,6 @@ DEPENDENCIES
   webrat
   will_paginate (~> 3.0.pre2)
   will_paginate-bootstrap
+
+BUNDLED WITH
+   1.10.6
