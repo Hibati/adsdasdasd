@@ -1,0 +1,49 @@
+<h1>Listing dlogics</h1>
+
+<table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>When this stuff happens</th>
+      <th>Event 1</th>
+      <th>Event 2</th>
+      <th>Then do these things 1st</th>
+      <th>Event 3</th>
+      <th>Then do these things 2st</th>
+      <th>Event 4</th>
+      <th>Then do these things 3st</th>
+      <th>Event 5</th>
+      <th>Then do these things 4st</th>
+      <th>Event 6</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dlogics.each do |dlogic| %>
+      <tr>
+      	<td><%= dlogic.id%></td>
+        <td align="center"><%= image_tag(dlogic.When_this_stuff_happens + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Event_1 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Event_2 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Then_do_these_things_1st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Event_3 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Then_do_these_things_2st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Event_4 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Then_do_these_things_3st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Event_5 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Then_do_these_things_4st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(dlogic.Event_6 + '.png', width: '50', height: '50') %></td>
+        <td><%= link_to 'Running', drive_logics_dlogic_path(dlogic), :onclick => "myrefresh()", class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to 'Edit', edit_dlogic_path(dlogic), class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to 'Destroy', dlogic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-sm' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dlogic', new_dlogic_path %>

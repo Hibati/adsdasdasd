@@ -1,121 +1,61 @@
 <div id="home-top">
 
-  <div id="home-top-center">
-    <div id="home-motto">
-      <h1>泰盛物聯網 太極雲</h1>
-      歡迎
-    </div>
+    <div id="home-top-center">
+        <div id="home-motto">
+            <h1>泰盛物聯網 泰集雲</h1>
 
-    <br><br>
+        </div>
 
-    <div>
-        <%= link_to t(:開始), new_user_registration_path, :class => 'btn btn-danger btn-lg' %>
-      <br><br>
-      <a href="http://www.iots.com.tw/?page_id=73" target="_blank"><%= t(:文件) %></a>
-      &nbsp; | &nbsp;
-      <a href="http://www.iots.com.tw/?page_id=303" target="_blank"><%=t(:支援)%></a>
-      &nbsp; | &nbsp;
-      GitHub
+        <br>
+        <br>
+
+        <div>
+            <%= link_to t(:開始), new_user_registration_path, :class => 'btn btn-success btn-lg' %>
+            <br>
+            <br>
+            
+			<!--
+            <a href="http://www.iots.com.tw/?page_id=73" target="_blank"><%= t(:文件) %></a>
+            &nbsp; | &nbsp;
+            <a href="http://www.iots.com.tw/?page_id=303" target="_blank"><%= t(:支援)%></a>
+			-->
+			
+        </div>
     </div>
-  </div>
 
 </div>
 
-<br><br>
+<br>
+<br>
 
 <div class="container">
 
-  <div class="row">
-
     <%= render 'layouts/flash' %>
 
-    <div class="col-sm-4">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <i class="fa fa-list fa-fw fa-lg"></i>
-            泰盛未來發展
-          </h3>
+    <br>
+    <br>
+
+    <div class="jumbotron">
+        <h1>讓我們開始吧!</h1> #get started
+        <p>
+            如果你正想建立物聯網, <%= link_to t(:註冊), new_user_registration_path, :class => 'btn btn-primary btn-sm' %> 一個免費的開發者賬戶.
+        </p>
+        <p>
+            <a href="/docs" target="_blank" class="btn btn-info btn-lg btn-margin">最新資訊</a>
+            <a id="contact_link" class="btn btn-success btn-lg btn-margin"><%= t(:聯繫我們) %></a>
+        </p>
+        <div id="contact_form">
+            <br>
+            <%= render :partial => 'pages/contact_form' %>
         </div>
-        <div class="panel-body panel-home">
-          <ul>
-            <li>開放程式</li>
-            <li>實時數據採集</li>
-            <li>定位數據</li>
-            <li>數據處理</li>
-            <li>數據透明化</li>
-            <li>設備狀態信息</li>
-            <li>外掛</li>
-          </ul>
-        </div>
-      </div>
     </div>
 
-    <div class="col-sm-4">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <i class="fa fa-gears fa-fw fa-lg"></i>
-           相關技術支援
-          </h3>
-        </div>
-        <div class="panel-body panel-home">
-          <ul>
-            <li>Arduino</li>
-            <li>Raspberry Pi</li>
-            <li>Mobile / Web Applications</li>
-            <li>Social Networks</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <br>
+    <br>
 
-    <div class="col-sm-4">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <i class="fa fa-comments fa-fw fa-lg"></i>
-            聯絡我們
-          </h3>
-        </div>
-        <div class="panel-body panel-home">
-          <ul>
-            <li>GitHub</li>
-            <li>Twitter / Google+</li>
-            <li><a href="http://www.iots.com.tw/" title=" Iots Blog">Blog</a></li>
-            <li><a href="http://www.iots.com.tw/?page_id=47" title="Join the Iots Forum">Forum</a></li>
-            <li><a href="/docs" title=" API and Apps Documentation">Documentation</a></li>
-            <li>Tutorials</li>
-            <li>Questions</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+</div>
 
-  </div>
-
-  <br><br>
-
-  <div class="jumbotron">
-    <h1>讓我們開始吧!</h1>  #get started
-    <p>如果你正想建立物聯網, <%= link_to t(:註冊), new_user_registration_path, :class => 'btn btn-primary btn-sm' %> 一個免費的開發者賬戶.</p>
-    <p>
-      <a href="/docs" target="_blank" class="btn btn-info btn-lg btn-margin">最新資訊</a>
-      <a id="contact_link" class="btn btn-success btn-lg btn-margin"><%= t(:聯繫我們) %></a>
-    </p>
-    <div id="contact_form">
-      <br>
-      <%= render :partial => 'pages/contact_form' %>
-    </div>
-  </div>
-
-  <br><br>
-
-  
-   
-  </div>
-
-  <br>
+<br>
 
 </div>
 

@@ -1,0 +1,113 @@
+<p id="notice"><%= notice %></p>
+<script type='text/javascript'>
+  // set your channel id here
+  var channel_id =33;
+  // set your channel's read api key here if necessary
+  var api_key = '0HZ0QXSI02OR1XXW';
+  // name of the gauge
+  var gauge_name = 'Temp';
+  
+  // load the google gauge visualization
+  google.load('visualization', '1', {packages:['gauge']});
+  google.setOnLoadCallback(initChart);
+
+  // display the data
+  function displayData(point) {
+    data.setValue(0, 0, gauge_name);
+    data.setValue(0, 1, point);
+    chart.draw(data, options);
+  }
+
+  // load the data
+  function loadData() {
+    // variable for the data point
+    var p;
+    // get the data from thingspeak
+     $.getJSON('http://192.168.1.202:3000/channels/33/fields/1/last.json?api_key=0HZ0QXSI02OR1XXW&timezone=Asia/Taipei', function(data) {
+      // get the data point
+      p = data.field1;
+      // if there is a data point display it
+      if (p) {
+        displayData(p);
+      }
+    });
+ 
+     $.getJSON('http://192.168.1.202:3000/channels/33/fields/3/last.json?api_key=0HZ0QXSI02OR1XXW&timezone=Asia/Taipei', function(data) {
+      // get the data point
+      p1 = data.field3;
+      if (p1 == '1') {
+        document.getElementById('myimage').innerHTML='<img src="https://lh3.googleusercontent.com/-VccYhtHNaBw/ViXxneVna5I/AAAAAAAAARA/M5iLYAkgFPw/s512-Ic42/Ledopen.jpg" height="298" width="220"/>';
+        document.getElementById('myimage_2').innerHTML='<img src="https://lh3.googleusercontent.com/-qJzUZpqthTM/VjHnQdELOvI/AAAAAAAAAVE/Y2mZHPbCQFI/s256-Ic42/door_open.png" height="256" width="256"/>';
+      }else
+      	document.getElementById('myimage').innerHTML='<img src="https://lh3.googleusercontent.com/-b5wSdoSkw9A/ViXxncaMHXI/AAAAAAAAAQ8/2LEHOjPQ6pM/s512-Ic42/Ledclose.jpg" height="298" width="220"/>';
+        document.getElementById('myimage_2').innerHTML='<img src="https://lh3.googleusercontent.com/-mVLs3Zlr8AA/VjHnQIx4COI/AAAAAAAAAVE/HzhbOMfa01c/s256-Ic42/door_close.png" height="256" width="256"/>';
+    });
+  }
+
+  // initialize the chart
+  function initChart() {
+    data = new google.visualization.DataTable();
+    data.addColumn('string', 'Label');
+    data.addColumn('number', 'Value');
+    data.addRows(1);
+    
+    chart = new google.visualization.Gauge(document.getElementById('gauge_div'));
+    options = {width: 180, height: 180, max: 40, min: 0, minorTicks: 5};
+
+    loadData();
+    
+    // load new data every 15 seconds
+    setInterval('loadData()', 3000);
+  }
+  
+</script>
+
+<table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>When this stuff happens</th>
+      <th>Event 1</th>
+      <th>Event 2</th>
+      <th>Then do these thing 1st</th>
+      <th>Event 3</th>
+      <th>Then do these thing 2st</th>
+      <th>Event 4</th>
+      <th>Then do these thing 3st</th>
+      <th>Event 5</th>
+      <th>Then do these thing 4st</th>
+      <th>Event 6</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+        <td align="center"><%= @dlogic.id %></td>
+        <td align="center"><%= image_tag(@dlogic.When_this_stuff_happens + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Event_1 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Event_2 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Then_do_these_things_1st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Event_3 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Then_do_these_things_2st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Event_4 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Then_do_these_things_3st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Event_5 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Then_do_these_things_4st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@dlogic.Event_6 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= link_to 'Stop', "#", class: 'btn btn-warning btn-sm' %></td>
+        <td align="center"><%= link_to 'Back', dlogics_path, class: 'btn btn-warning btn-sm' %></td>
+  </tbody>
+</table>
+
+	<table align="center" style="border:8px #FFD382 groove;" rules="all" cellpadding='5';>
+	<tr><td><div id="gauge_div"></div></td><td><div id="myimage"></div></td><td><div id="myimage_2"></div></td></td></tr>
+	</table>
+	
+	<table align="center" style="border:8px #FFD382 groove;" rules="all" cellpadding='5';>
+		<tr><td><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="http://192.168.1.202:3000/channels/33/charts/1?width=450&height=260&results=60&dynamic=true" ></iframe></td>
+	<td><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="http://192.168.1.202:3000/channels/33/charts/3?width=450&height=260&results=60&dynamic=true" ></iframe></td></tr>
+	
+	</table>
+
+
+

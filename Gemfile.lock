@@ -380,6 +380,7 @@ DEPENDENCIES
   chronic
   clockwork
   coffee-rails (~> 4.0)
+  coffee-script
   daemon-spawn
   daemons
   dalli
@@ -389,6 +390,7 @@ DEPENDENCIES
   dynamic_form
   em-http-request
   exception_notification
+  execjs
   factory_girl_rails
   faker
   geokit

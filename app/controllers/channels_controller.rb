@@ -419,6 +419,11 @@ class ChannelsController < ApplicationController
   def import
     get_channel_data
   end
+  
+  # New dora list view
+  def logics
+    get_channel_data
+  end
 
   # upload csv file to channel
   def upload
@@ -606,4 +611,3 @@ class ChannelsController < ApplicationController
     end
 
 end
-

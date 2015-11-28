@@ -4,6 +4,8 @@ code                    { word-wrap: break-word; white-space: normal; }
 .breadcrumb             { margin-top: 10px; margin-bottom: 20px; } /* margins to make sure breadcrumb and h4.breadcrumb line up properly */
 .panel-primary .panel-heading a { color: #fff; font-weight: bold; }
 .table td               { word-break: break-word; }
+.navbar 				{ min-height: 50px; }
+/*Xmas*/.navbar-inverse 		{ background-image: -webkit-linear-gradient(#08E49D, #0EAB21 60%, #118003);background-image: linear-gradient(#08E49D, #0EAB21 60%, #118003); }
 
 /* table sorting */
 .tablesorter thead      { cursor: pointer; background-color: #f0f0f0; }
@@ -13,7 +15,7 @@ code                    { word-wrap: break-word; white-space: normal; }
 /* homepage */
 #home-motto             { font-size: 2em; }
 #home-motto h1          { font-size: 2em; color: #fff; }
-#home-top               { display: table; height: 500px; width: 100%; background: url('<%= asset_path("thingspeak_stars_bg.jpg") %>') no-repeat; background-size: 100% 500px; text-align: center; color: #fff; }
+/*Xmas*/#home-top               { display: table; height: 500px; width: 100%; background: url('<%= asset_path("xmas.jpg") %>') no-repeat; background-size: 100% 500px; text-align: center; color: #fff; }
 #home-top a             { color: #fff; }
 #home-top-center        { display: table-cell; vertical-align: middle; position: relative; top: -20px; }
 .panel-home             { min-height: 180px; }
@@ -65,34 +67,34 @@ body                    { padding-top: 70px; }
 
 html,
 body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
+height: 100%;
+/* The html and body elements cannot have any padding or margin. */
 }
 
 /* Wrapper for page content to push down footer */
 #wrap {
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -30px;
-  padding: 0 0 60px;
+min-height: 100%;
+height: auto;
+/* Negative indent footer by its height */
+margin: 0 auto -30px;
+padding: 0 0 60px;
 }
 
 /* Set the fixed height of the footer here */
 #footer {
-  padding-top: 5px;
-  border-top: 1px solid #ddd;
-  height: 30px;
-  background-color: #f5f5f5;
+padding-top: 5px;
+border-top: 1px solid #ddd;
+height: 40px;
+background-color: #690505;
 }
-#footer .container { background-color: #f5f5f5; }
+#footer .container { background-color: #690505; }
 @media (max-width: 767px) {
-  #footer span { display: block; text-align: center; float: none !important; }
+#footer span { display: block; text-align: center; float: none !important; }
 }
 
 /* old styles */
 .infobox {
-    vertical-align:bottom;
+vertical-align:bottom;
 }
 .spanlink 							{ cursor: pointer; }
 .boldlink 							{ font-weight: bold; }
@@ -100,14 +102,14 @@ body {
 .apps:hover div         { text-decoration: none; }
 .commentarea 						{	width: 300px;	height: 80px; }
 #login                  {
-    padding: 6px;
-    border: 1px solid #bbbbbb;
-    border-collapse: separate;
-    border-spacing: 3px;
-    background-color: #eeeeee;
-    background: -webkit-gradient(linear, left top, right top, from(#dddddd), to(#f5f5f5));
-    background: -moz-linear-gradient(left, #dddddd, #f5f5f5);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#f5f5f5', GradientType=1);
+padding: 6px;
+border: 1px solid #bbbbbb;
+border-collapse: separate;
+border-spacing: 3px;
+background-color: #eeeeee;
+background: -webkit-gradient(linear, left top, right top, from(#dddddd), to(#f5f5f5));
+background: -moz-linear-gradient(left, #dddddd, #f5f5f5);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#f5f5f5', GradientType=1);
 }
 
 .signed_in_channel_header {display:inline-block; }
@@ -119,18 +121,18 @@ body {
 .public_channel_description { height: 140px; overflow: hidden; }
 .public_channel_tags { height: 40px; overflow: hidden; }
 .channelLinks {
-    padding: 0 0 0 0;
-    margin-bottom: 15px;
+padding: 0 0 0 0;
+margin-bottom: 15px;
 }
 .channelLinks li {
-    padding : 7px;
-    border: 1px solid #CCC ;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    display:inline;
-    margin:0 0 0 0;
-    list-style: none;
+padding : 7px;
+border: 1px solid #CCC ;
+border-radius: 15px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+display:inline;
+margin:0 0 0 0;
+list-style: none;
 }
 #comments               { width: 100%; }
 #commentsmain		{ float:left; width: 190px; background-color: #fffff9; border: 1px dashed #d0d0d0; padding: 5px; margin-right: 16px; overflow: hidden; display:none }
@@ -138,8 +140,8 @@ body {
 #public_statuses        { width: 455px; height: 380px; overflow: auto; font-size: 1.5em; }
 #public_statuses div    { margin-left: 15px; }
 .statusIFrame {
-    border : 1px solid #cccccc ;
-    background-color: #ffffff;
+border : 1px solid #cccccc ;
+background-color: #ffffff;
 }
 
 .userlogin              { display:none; }
@@ -190,8 +192,8 @@ body {
 .commentchannel					{ color: #f08600; font-weight: bold; }
 .commentbody						{ color: #333333; }
 .commentdiv { width:100%; padding: 5px 0 5px 0;
-	      font-size: 12px;
-	      border-top: 1px solid #aaa; }
+font-size: 12px;
+border-top: 1px solid #aaa; }
 .gravatar 							{	border: 1px solid #999; }
 .noavatar 							{	width: 50px; height: 50px; border: 1px solid #ddd; color: #ddd; text-align: center; }
 .noavatartext 					{ padding-top: 5px; }
@@ -199,8 +201,8 @@ body {
 .username a							{	color: #3478E3;	font-weight: bold; }
 
 .timeago {
-    font-size: 0.8em;
-    color: #ccc;
+font-size: 0.8em;
+color: #ccc;
 }
 
 .pagination             { font-size: 14px; }
@@ -233,25 +235,25 @@ textarea.tweet { margin-top: 0.5em; width: 40em; height: 3em; }
 input#upload_csv { padding-top:5px;margin:20px 0;}
 
 #sidebar_old           {
-    font-size: 14px;
-    width:50%;
-    padding-right: 10px ;
-    margin-top: 10px;
-    margin-left: 460px;
-    margin-right: 0;
-    border: 1px solid #CCC ;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
+font-size: 14px;
+width:50%;
+padding-right: 10px ;
+margin-top: 10px;
+margin-left: 460px;
+margin-right: 0;
+border: 1px solid #CCC ;
+border-radius: 15px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
 }
 #sidebar_old ul             {
-    list-style: none;
-    margin: 15px 20px 30px 0 ;}
+list-style: none;
+margin: 15px 20px 30px 0 ;}
 #sidebar_old ul li ul li    { margin:0; }
 #sidebar_old h2             {
-    color:#666;
-    margin: 0 0 6px 0;
-    padding: 0 0;
+color:#666;
+margin: 0 0 6px 0;
+padding: 0 0;
 }
 #sidebar_old.wide           { width: 520px; }
 #sidebar_old.medium         { width: 470px; }
@@ -312,22 +314,22 @@ input.video_narrow {width:100px; }
 /* jQuery Overrides */
 .ui-widget { font-size: 0.9em; }
 .ui-widget-header   {
-    border: 1px solid #0867A3;
-    background: #0867a3 none top right no-repeat;
+border: 1px solid #0867A3;
+background: #0867a3 none top right no-repeat;
 }
 .ui-progressbar {
-    height: 5px;
+height: 5px;
 }
 .ui-progressbar-value {
-    background-color: green;
+background-color: green;
 }
 .ui-widget-content a{
-    color:blue;
-    text-decoration: underline;
-    margin:0;
+color:blue;
+text-decoration: underline;
+margin:0;
 }
 .ui-widget-content p {
-    margin:0 0 10px 10px;
+margin:0 0 10px 10px;
 
 }
 
@@ -341,119 +343,117 @@ input.video_narrow {width:100px; }
 .ui-sortable-placeholder * { visibility: hidden; }
 
 .buttonlets {
-    float:left;
-    overflow:hidden;
-    max-width:95px;
+float:left;
+overflow:hidden;
+max-width:95px;
 }
 
 .tweetButton {
-    width:80px;
+width:80px;
 }
 .facebookButton {
-    width:85px;
+width:85px;
 }
 .googleplusButton {
-    width:70px;
+width:70px;
 }
 
 .padded {
-    margin-top:2px;
+margin-top:2px;
 }
 
 .ui-button {
-    height: 19px;
-    line-height:1em;
+height: 19px;
+line-height:1em;
 }
 .ui-button-text-only .ui-button-text {
-    padding: 0.2em 1em 0.2em 0.4em ;
-    font-size: 12px;
+padding: 0.2em 1em 0.2em 0.4em ;
+font-size: 12px;
 }
 
 .ui-state-active {
-    border: 1px solid #2565a5;
-    background: #ddd none 50% 50% repeat-x;
-    color: #2565a5;
+border: 1px solid #2565a5;
+background: #ddd none 50% 50% repeat-x;
+color: #2565a5;
 }
 
 .ui-state-default {
-    border: 1px solid #ccc;
-    color: #2565a5;
+border: 1px solid #ccc;
+color: #2565a5;
 }
 
 .ui-state-hover {
-    background: #ccc none 50% 50% repeat-x;
+background: #ccc none 50% 50% repeat-x;
 }
 
 .topLink {
-    font-size: 16px;
+font-size: 16px;
 
 }
 .developerlink {
 
-    padding:7px;
-    margin-left:10px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    -webkit-border-bottom-left-radius: 15px;
-    -webkit-border-bottom-right-radius: 15px;
-    -moz-border-bottom-left-radius: 15px;
-    -moz-border-bottom-right-radius: 15px;
-    background-color:#aaa;
+padding:7px;
+margin-left:10px;
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+-webkit-border-bottom-left-radius: 15px;
+-webkit-border-bottom-right-radius: 15px;
+-moz-border-bottom-left-radius: 15px;
+-moz-border-bottom-right-radius: 15px;
+background-color:#aaa;
 
 }
 
 .addpluginlink {
-    color:white;
-    padding:7px;
-    margin-left:10px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    background-color:#aaa;
-    cursor:pointer;
+color:white;
+padding:7px;
+margin-left:10px;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+background-color:#aaa;
+cursor:pointer;
 }
 .addpluginlink:hover {
-    background-color: #ccc;
+background-color: #ccc;
 }
 
 .pluginrectangle {
-    display:none;
-    background-color:#aaa;
-    border-radius:5px;
-    position:absolute;
-    height:70%;
-    width:100%;
-    top:30px;
-    right:0;
+display:none;
+background-color:#aaa;
+border-radius:5px;
+position:absolute;
+height:70%;
+width:100%;
+top:30px;
+right:0;
 }
-
 
 .developerlink:hover {
-    background-color: #ccc;
+background-color: #ccc;
 }
 .developerlink a {
-    color : white;
-    text-decoration:none;
+color : white;
+text-decoration:none;
 }
 
 .socialButtons {
-    float:right;
-    display:inline;
+float:right;
+display:inline;
 
 }
 
 .dev-info-dialog  {
-    border : 2px solid #bbb;
+border : 2px solid #bbb;
 
 }
 .dev-info-dialog .ui-dialog-titlebar {
-    background-color: #aaa;
-    color : white;
+background-color: #aaa;
+color : white;
 }
 
-
 .dev-info-dialog a {
-    text-decoration : underline;
+text-decoration : underline;
 }
 
 .ui-tabs {
@@ -461,42 +461,42 @@ height:100%;
 }
 .dev-info-dialog ul {
 /*    display: inline; */
-    list-style-type: none;
-    background-color: whitesmoke;
+list-style-type: none;
+background-color: whitesmoke;
 }
 #devInfo {
-    font-size: 1.2em;
+font-size: 1.2em;
 }
 .dev-info-dialog ul li {
-    display: inline;
-    list-style-type: none;
+display: inline;
+list-style-type: none;
 }
 
 .dev_info_table1 {
-    margin-bottom:10px;
+margin-bottom:10px;
 }
 
 .dev_info_table2 {
-    margin-left: 10px;
+margin-left: 10px;
 }
 .dev_info_table2 td {
-    max-width:300px;
+max-width:300px;
 }
 .watchButtonLabel {
-    white-space: nowrap;
-    padding-right:10px;
+white-space: nowrap;
+padding-right:10px;
 }
 
 .watchButtonPadding {
-    padding-right : 5px;
+padding-right : 5px;
 }
 
 .chartOptions {
-    display: none;
+display: none;
 }
 .fade {
-   display: none;
-   font-size : 1.2em;
+display: none;
+font-size : 1.2em;
 }
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #d82020; background: #f5cece url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #d82020; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #d82020; text-decoration: none; }
@@ -509,20 +509,20 @@ height:100%;
 .watchButtonLabel.ui-state-hover { color: #d82020; border: 1px solid #d82020; }
 
 .ui-tabs .ui-tabs-panel {
-    padding-top:0;
+padding-top:0;
 }
 
 .addportlet {
-    padding:5px;
-    width:50px;
-    margin:5px;
-    border-radius:5px;
-    border : 2px solid red;
-    cursor: pointer;
-    display:inline-block;
+padding:5px;
+width:50px;
+margin:5px;
+border-radius:5px;
+border : 2px solid red;
+cursor: pointer;
+display:inline-block;
 }
 
 .channel_time_text {
-  color:black !important; font-size:1em !important;
+color:black !important; font-size:1em !important;
 }
 

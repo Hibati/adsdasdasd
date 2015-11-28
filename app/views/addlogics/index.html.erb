@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+<h1>Logics</h1>
+
+<table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>When this stuff happens</th>
+      <th>Event 1</th>
+      <th>Event 2</th>
+      <th>Then do these thing 1st</th>
+      <th>Event 3</th>
+      <th>Then do these thing 2st</th>
+      <th>Event 4</th>
+      <th>Then do these thing 3st</th>
+      <th>Event 5</th>
+      <th>Then do these thing 4st</th>
+      <th>Event 6</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @addlogics.each do |addlogic| %>
+      <tr>
+        <td align="center"><%= addlogic.id %></td>
+        <td align="center"><%= image_tag(addlogic.When_this_stuff_happens + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(addlogic.Event_1 + '.png', width: '50', height: '50') %></td>
+        <td><%= addlogic.Event_2 %></td>
+        <td><%= link_to 'Running', addlogic, :onclick => "loadData()", class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to 'Edit', edit_addlogic_path(addlogic), class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to 'Destroy', addlogic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-sm' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Logic', new_addlogic_path, class: 'btn btn-warning btn-sm'%>
+</div>

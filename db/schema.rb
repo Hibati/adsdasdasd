@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117042615) do
+ActiveRecord::Schema.define(version: 20151121075201) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,22 @@ ActiveRecord::Schema.define(version: 20151117042615) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "addlogics", force: true do |t|
+    t.string   "When_this_stuff_happens"
+    t.string   "Event_1"
+    t.string   "Event_2"
+    t.string   "Then_do_these_things_1st"
+    t.string   "Event_3"
+    t.string   "Then_do_these_things_2st"
+    t.string   "Event_4"
+    t.string   "Then_do_these_things_3st"
+    t.string   "Event_5"
+    t.string   "Then_do_these_things_4st"
+    t.string   "Event_6"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -164,6 +180,21 @@ ActiveRecord::Schema.define(version: 20151117042615) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "device_names", force: true do |t|
+    t.string   "name"
+    t.integer  "DeviceType_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "device_names", ["DeviceType_id"], name: "index_device_names_on_DeviceType_id", using: :btree
+
+  create_table "device_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "devices", force: true do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -181,6 +212,31 @@ ActiveRecord::Schema.define(version: 20151117042615) do
 
   add_index "devices", ["mac_address"], name: "index_devices_on_mac_address", using: :btree
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
+
+  create_table "dlogics", force: true do |t|
+    t.string   "When_this_stuff_happens"
+    t.string   "Event_1"
+    t.string   "Event_2"
+    t.string   "Then_do_these_things_1st"
+    t.string   "Event_3"
+    t.string   "Then_do_these_things_2st"
+    t.string   "Event_4"
+    t.string   "Then_do_these_things_3st"
+    t.string   "Event_5"
+    t.string   "Then_do_these_things_4st"
+    t.string   "Event_6"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dvice_names", force: true do |t|
+    t.string   "name"
+    t.integer  "actuator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dvice_names", ["actuator_id"], name: "index_dvice_names_on_actuator_id", using: :btree
 
   create_table "events", force: true do |t|
     t.integer  "timecontrol_id"

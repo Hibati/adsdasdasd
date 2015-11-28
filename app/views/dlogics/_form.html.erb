@@ -1,0 +1,262 @@
+<%= stylesheet_link_tag 'main'%>
+
+<div class="con_1">
+		<li><h2>When this stuff happens ... </h2></li>
+		<div id="dd-elements" class="clearfix">
+			<ul id="drag-elements">
+				<ul id="dd-button">
+					<li draggable="true"><%= image_tag("Temperature.png", width: '50', height: '50', :id=> 'temperature')%></li>
+					<li draggable="true"><%= image_tag("door_close.png", width: '50', height: '50', :id=> 'door') %></li>
+					<%= hidden_field_tag 'select_values_1', '' %>
+
+					<br/>
+				</ul>
+			</ul>
+			</div>
+			<div id="drop-target-one">
+			</div>
+			<div id="drop-target-one" class="temp_select" hidden="hidden">
+				<%= select_tag "selection_1", options_for_select(@selection_1, "") %>
+				<%= select_tag "selection_2", options_for_select(@selection_2, "") %>
+			</div>
+			<div id="drop-target-one" class="led_select" hidden="hidden">
+				<%= select_tag "selection_1", options_for_select(@selection_3, "") %>
+			</div>
+		<br/>
+	</div>
+<div class="con_2" hidden = "hidden">
+		<li><h2>Then do these things ... </h2></li>
+		<div id="dd-elements" class="clearfix">
+			<ul id="drag-elements">
+				<ul id="dd-button">
+					<li draggable="true"><%= image_tag("Ledopen.png", width: '50', height: '50', :id=> 'Ledopen')%></li>
+					<%= hidden_field_tag 'select_values_2', '' %>
+					<br/>
+				</ul>
+			</ul>
+			</div>
+			<div id="drop-target-two">
+			</div>
+			<div id="drop-target-two" class="led_select_2" hidden="hidden">
+				<%= select_tag "selection_3", options_for_select(@selection_3) %>
+			</div>
+	</div>
+	<script>
+		dropZoneone();
+		$('#selection_1').change(function() {   
+		   var select_1 = $('#selection_1 :selected').val();
+		   document.getElementById('dlogic_Event_1').value = select_1;
+		});
+		$('#selection_2').change(function() {   
+		   var select_2 = $('#selection_2 :selected').val();
+		   document.getElementById('dlogic_Event_2').value = select_2;
+		});
+		$('#selection_3').change(function() {   
+		   var select_3 = $('#selection_3 :selected').val();
+		   document.getElementById('dlogic_Event_3').value = select_3;
+		});
+	function dropZoneone() {
+		/** dragElements **/
+		var dropZoneOne = document.querySelector('#drop-target-one');
+		var dragElements = document.querySelectorAll('#drag-elements li');
+		//var dragElements = document.querySelectorAll('#drag-elements button');
+		var elementDragged = null;
+	
+		for (var i = 0; i < dragElements.length; i++) {
+	
+			// Event Listener for when the drag interaction starts.
+			dragElements[i].addEventListener('dragstart', function(e) {
+				e.dataTransfer.effectAllowed = 'move';
+				e.dataTransfer.setData('text', this.innerHTML);
+				//e.dataTransfer.setData('text', e.target.id);
+				elementDragged = this;
+				
+				all_value = e.target.id;
+				document.getElementById('select_values_1').value = e.target.id;
+			
+			});
+	
+			// Event Listener for when the drag interaction finishes.
+			dragElements[i].addEventListener('dragend', function(e) {
+				elementDragged = null;
+				if(all_value == 'temperature'){
+					document.getElementById('dlogic_When_this_stuff_happens').value = "Temperature";
+					flag_temperature = true;
+					$(document).ready(function(){
+					  $(".temp_select").toggle();
+					  $(".led_select").hide();
+					  $(".con_2").toggle();
+					  draggabletwo();
+					});
+				}else if(all_value == 'door'){
+					document.getElementById('dlogic_When_this_stuff_happens').value = "Door";
+					flag_door = true;
+					$(document).ready(function(){
+					  $(".led_select").toggle();
+					  $(".temp_select").hide();
+					  $(".con_2").hide();
+					});
+				}
+			});
+			
+		};
+	
+		// Event Listener for when the dragged element is over the drop zone.
+		dropZoneOne.addEventListener('dragover', function(e) {
+			if (e.preventDefault) {
+				e.preventDefault();
+			}
+			e.dataTransfer.dropEffect = 'move';
+			return false;
+		});
+	
+		// Event Listener for when the dragged element enters the drop zone.
+		dropZoneOne.addEventListener('dragenter', function(e) {
+			this.className = "over";
+		});
+	
+		// Event Listener for when the dragged element dropped in the drop zone.
+		dropZoneOne.addEventListener('drop', function(e) {
+			if (e.preventDefault) e.preventDefault(); 
+	  		if (e.stopPropagation) e.stopPropagation(); 
+	
+			this.className = "";
+			this.innerHTML = e.dataTransfer.getData('text');
+			
+			return false;
+		});
+	};
+
+	function draggabletwo() {
+		/** dragElements **/
+		var dropZoneTwo = document.querySelector('#drop-target-two');
+		var dragElements = document.querySelectorAll('#drag-elements li');
+		//var dragElements = document.querySelectorAll('#drag-elements button');
+		var elementDragged = null;
+	
+		for (var i = 0; i < dragElements.length; i++) {
+	
+			// Event Listener for when the drag interaction starts.
+			dragElements[i].addEventListener('dragstart', function(e) {
+				e.dataTransfer.effectAllowed = 'move';
+				e.dataTransfer.setData('text', this.innerHTML);
+				//e.dataTransfer.setData('text', e.target.id);
+				elementDragged = this;
+				
+				all_value = e.target.id;
+				document.getElementById('select_values_2').value = e.target.id;
+			
+			});
+	
+			// Event Listener for when the drag interaction finishes.
+			dragElements[i].addEventListener('dragend', function(e) {
+				elementDragged = null;
+				if(all_value == 'Ledopen'){
+					document.getElementById('dlogic_Then_do_these_things_1st').value = "Led";
+					flag_temperature = true;
+					$(document).ready(function(){
+					  $(".led_select_2").toggle();
+					});
+				}
+			});
+			
+		};
+	
+		// Event Listener for when the dragged element is over the drop zone.
+		dropZoneTwo.addEventListener('dragover', function(e) {
+			if (e.preventDefault) {
+				e.preventDefault();
+			}
+			e.dataTransfer.dropEffect = 'move';
+			return false;
+		});
+	
+		// Event Listener for when the dragged element enters the drop zone.
+		dropZoneTwo.addEventListener('dragenter', function(e) {
+			this.className = "over";
+		});
+	
+		// Event Listener for when the dragged element dropped in the drop zone.
+		dropZoneTwo.addEventListener('drop', function(e) {
+			if (e.preventDefault) e.preventDefault(); 
+	  		if (e.stopPropagation) e.stopPropagation(); 
+	
+			this.className = "";
+			this.innerHTML = e.dataTransfer.getData('text');
+	
+			return false;
+		});
+	};
+
+	</script>
+	<div>
+		<%= hidden_field_tag 'select_1', '<' %>
+		<%= hidden_field_tag 'select_2', '24' %>
+		<%= hidden_field_tag 'select_3', 'Open' %>
+	</div>
+
+
+
+<%= form_for(@dlogic) do |f| %>
+  <% if @dlogic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dlogic.errors.count, "error") %> prohibited this dlogic from being saved:</h2>
+
+      <ul>
+      <% dlogic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+ 
+  <div class="field">
+    <%= f.label :When_this_stuff_happens %><br>
+    <%= f.text_field :When_this_stuff_happens, :value => "Null" %>
+  </div>
+  <div class="field">
+    <%= f.label :Event_1 %><br>
+    <%= f.text_field :Event_1, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Event_2 %><br>
+    <%= f.text_field :Event_2, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Then_do_these_thing_1st %><br>
+    <%= f.text_field :Then_do_these_things_1st, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Event_3 %><br>
+    <%= f.text_field :Event_3, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Then_do_these_thing_2st %><br>
+    <%= f.text_field :Then_do_these_things_2st, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Event_4 %><br>
+    <%= f.text_field :Event_4, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Then_do_these_thing_3st %><br>
+    <%= f.text_field :Then_do_these_things_3st, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Event_5 %><br>
+    <%= f.text_field :Event_5, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Then_do_these_thing_4st %><br>
+    <%= f.text_field :Then_do_these_things_4st, :value => "Null"  %>
+  </div>
+  <div class="field">
+    <%= f.label :Event_6 %><br>
+    <%= f.text_field :Event_6, :value => "Null"  %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Create', class: 'btn btn-warning btn-sm'  %>
+  </div>
+<% end %>

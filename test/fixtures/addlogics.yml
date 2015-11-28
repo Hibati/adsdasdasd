@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  When_this_stuff_happens: MyString
+  Event_1: MyString
+  Event_2: MyString
+  Then_do_these_things_1st: MyString
+  Event_3: MyString
+  Then_do_these_things_2st: MyString
+  Event_4: MyString
+  Then_do_these_things_3st: MyString
+  Event_5: MyString
+  Then_do_these_things_4st: MyString
+  Event_6: MyString
+
+two:
+  When_this_stuff_happens: MyString
+  Event_1: MyString
+  Event_2: MyString
+  Then_do_these_things_1st: MyString
+  Event_3: MyString
+  Then_do_these_things_2st: MyString
+  Event_4: MyString
+  Then_do_these_things_3st: MyString
+  Event_5: MyString
+  Then_do_these_things_4st: MyString
+  Event_6: MyString

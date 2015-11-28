@@ -40,14 +40,19 @@ gem 'geokit-rails'
 gem 'clockwork'
 gem 'delayed_job_active_record'
 gem 'daemon-spawn'
-
+gem 'coffee-script'
 # to use debugger
 # gem 'ruby-debug'
+
+gem 'execjs'
+gem 'puma'
 
 # assets
 gem "sass-rails", "4.0.2"
 gem 'coffee-rails', " ~> 4.0"
 gem 'uglifier'
+
+
 
 group :development do
   gem 'annotate', '~> 2.6.1'

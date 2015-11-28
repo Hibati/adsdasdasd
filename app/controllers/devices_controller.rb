@@ -1,13 +1,12 @@
 class DevicesController < ApplicationController
-    
+  require 'open-uri'
+  require 'json'
+  require 'net/http'
     
     def new
-         @user = current_user || User.find_by_api_key(get_apikey)
-         
-         @newdevice = @user.channels.new
-         
-         
-        
+      
+     
+     
     end
     def show
     
@@ -20,7 +19,12 @@ class DevicesController < ApplicationController
         
         @user = current_user || User.find_by_api_key(get_apikey)
         
-        channel = @user.channels.create({ :name => params[:channel][:name], :description => params[:channel][:description] })
+        channel = @user.channels.create({ 
+          :name => params[:device_type], 
+          :description => params[:device] ,
+          :field1 => "test",
+          :field2 => "test2"
+        })
         # make updating attributes easier
         #params[:channel] = params
      

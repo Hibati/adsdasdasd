@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+DeviceType.create(name: "Sensor")
+DeviceType.create(name: "Actuator")
+  
+DeviceName.create(name: "paris", DeviceType_id: DeviceType.find_by(name: "Sensor").id)
+DeviceName.create(name: "nice", DeviceType_id: DeviceType.find_by(name: "Sensor").id)
+DeviceName.create(name: "roma", DeviceType_id: DeviceType.find_by(name: "Actuator").id)
+DeviceName.create(name: "venezia", DeviceType_id: DeviceType.find_by(name: "Actuator").id)

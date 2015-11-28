@@ -1,5 +1,12 @@
 Thingspeak::Application.routes.draw do
 
+  resources :dlogics
+  resources :dlogics do
+    member do
+      get 'drive_logics'
+    end
+  end
+
   # admin routes
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -54,7 +61,10 @@ Thingspeak::Application.routes.draw do
 
   # search
   resources :tags
-
+###
+  
+  get 'devices/update_device_name', as: 'update_device_name'
+  get 'devices/showdevice'
   # specific feeds
   get 'channels/:channel_id/feed(s)(.:format)' => 'feed#index'
   get 'channels/:channel_id/field/:field_id(.:format)' => 'feed#index' # not sure why this doesn't work with (s)

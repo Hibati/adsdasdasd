@@ -1,37 +1,21 @@
 
-<div class="row">
-  <div class="col-sm-6 col-xs-12">
+<%= javascript_include_tag('devices.js.coffee') %>
+
+<%= link_to "Home","#", :id => 'my-link' %>
+
+<a href="#" data-background-color="#990000">Paint it red</a>
+<a href="#" data-background-color="#009900" data-text-color="#FFFFFF">Paint it green</a>
+<a href="#" data-background-color="#000099" data-text-color="#FFFFFF">Paint it blue</a>
 
 
-<%= form_for(@newdevice, :url =>{ :action => :create} , :html => { :id => 'loginform', :class => 'form-horizontal' }) do |f| %>
-      <input name='userlogin' class='userlogin' />
 
-      <div class="form-group">
-        <label class="col-sm-4 col-xs-3 control-label"><%= t(:DeviceType) %></label>
+<%= form_tag controller: "devices", action: "create", method: "get", class: "nifty_form" do %>
+  <%= label_tag :device_type, "Device Type:" %>
+  <%= select_tag :device_type ,"<option>actuator</option><option>Sensor</option>".html_safe, :id => 'device_type'  %>
+  <%= label_tag :device, "Device:" %>
+  <%= select_tag :device , :id => 'device' %>
+  <%= submit_tag "Create The Device"  %>
+<% end %>
 
-        <%= f.select :description, options_for_select(%w[deviceA deviceB deviceC]) %>
-      </div>
 
-      <div class="form-group">
-        <label class="col-sm-4 col-xs-3 control-label"><%= t(:DeviceName) %></label>
-        <div class="col-sm-8 col-xs-9">
-          <%= f.text_field :name, :class => 'form-control' %>
-         
-        </div>
-      </div>
-     
-       
-    
 
-      <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8 col-xs-offset-3 col-xs-9">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8 col-xs-offset-3 col-xs-9"><p class="form-control-static"><%= f.submit 'Create Device', :class => 'btn btn-primary' %></p></div>
-      </div>
-    <% end %>
-    
-    </div>
-</div>

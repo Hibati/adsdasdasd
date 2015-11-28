@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   after_filter :remove_headers
   before_filter :authenticate_user_from_token!
 
+  def index
+    Delayed::Job.enqueue(DlogicJob.new())
+  end
+  
   # responds with blank
   def respond_with_blank
     respond_to do |format|
