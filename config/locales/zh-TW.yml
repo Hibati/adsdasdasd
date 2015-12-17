@@ -1,0 +1,727 @@
+zh-TW:
+  time:
+    formats:
+      pretty: "%a, %b %e at %l:%M %p"
+  about: "關於"
+  account: "帳戶"
+  account_delete: "刪除帳戶"
+  account_deleted: "您的帳戶已被刪除。"
+  account_delete_message: "確定要刪除您的帳戶嗎?"
+  account_edit: "修改帳戶"
+  account_error_edit: "修改帳戶時出現了一些問題:"
+  account_not_found: "找不到您的帳戶。"
+  account_update: "更新帳戶。"
+  action: "動作"
+  admin: "管理員"
+  ago: "以前"
+  api_key: "API Key"
+  api_key_delete: "刪除 API Key"
+  api_key_key: "Key"
+  api_key_new: "產生新的 API Key"
+  api_key_read: "讀取 API Keys"
+  api_key_read_new: "產生新的讀取 API Key"
+  api_key_write: "寫入 API Key"
+  api_key_write_new: "產生新的寫入 API Key"
+  api_keys: "API Keys"
+  apps: "應用"
+  authorization: "授權"
+  average: "平均"
+  blog: "部落格"
+  channel: "頻道"
+  channel_clear: "清除頻道"
+  channel_clear_message: "想要清除這個頻道中的所有數據嗎?"
+  channel_error: "在創建頻道時發生了一些問題:"
+  channel_update_success: "頻道已更新。"
+  channel_feed: "頻道饋送"
+  channel_default_field: "領域的標籤"
+  channel_default_name: "頻道"
+  channel_delete_message: "要刪掉這個頻道嗎?"
+  channel_description: "說明"
+  channel_directions: "方向"
+  channel_id: "頻道 ID"
+  channel_log_to: "Log to Channel"
+  channel_logged_to: "Logged to Channel"
+  channel_name: "名稱"
+  channel_ranking: "完成百分比"
+  channel_not_public: "這不是公共的頻道。"
+  channel_permission: "您沒有查看這個頻道的權限!"
+  channel_url: "連結"
+  channels: "頻道"
+  channels_my: "我的頻道"
+  channels_near: "Channels Near"
+  channels_public: "公共頻道"
+  channels_public_view: "查看公共頻道"
+  channel_video_type_blank: "Either Youtube, or Vimeo, is required if a Video ID is specified."
+  chart_max: "最大的數據"
+  chart_min: "最小的數據"
+  chart_background_color: "背景"
+  chart_is_dynamic: "動態?"
+  chart_embed_code: "嵌入Code"
+  chart_example: "示例圖"
+  chart_color: "顏色"
+  chart_no_access: "此頻道不是公開的。要嵌入圖表，這個頻道要是公開的或是有被指定一個讀取的key。"
+  chart_owned: "您的圖表"
+  chart_round: "捨去"
+  chart_type: "類型"
+  chart_update: "更新圖表"
+  chart_xaxis: "X軸"
+  chart_yaxis: "Y軸"
+  chart_yaxis_min: "Y軸最小值"
+  chart_yaxis_max: "Y軸最大值"
+  charts: "圖表"
+  comment_add: "新增註釋"
+  comment_flag: "回報錯誤"
+  comment_reply: "回報"
+  comment_reported: "已回報!"
+  confirm_account_delete: "確定要刪除自己的帳戶? 這項動作無法復原喔！"
+  confirm_read_key_delete: "確定要刪除這個讀取的 API Key?"
+  confirm_channel_clear: "確定要清空這個頻道?"
+  confirm_channel_delete: "確定要刪除這個頻道?"
+  confirm_comment_delete: "確定要刪除這個註釋?"
+  confirm_device_delete: "確定要刪除這個裝置?"
+  confirm_device_random_mac: "確定要新增一個隨機的 MAC address給這個裝置?"
+  confirm_device_unique_mac: "確定要新增一個獨特的 MAC address給這個裝置?"
+  confirm_new_api_key: "確定要新增一個寫入的 API key?"
+  confirm_new_talkback_key: "確定要新增一個 TalkBack API key?"
+  confirm_new_thinghttp_key: "確定要新增一個 ThingHTTP API key?"
+  confirm_new_thingtweet_key: "確定要新增一個 ThingTweet API key?"
+  confirm_new_user_api_key: "確定要新增一個 API key?"
+  confirm_plugin_delete: "確定要刪除這個插件?"
+  confirm_react_delete: "確定要刪除這個 響應?"
+  confirm_talkback_delete: "確定要刪除這個 TalkBack?"
+  confirm_thinghttp_delete: "確定要刪除這個 ThingHTTP?"
+  confirm_timecontrol_delete: "確定要刪除這個 TimeControl?"
+  confirm_tweetcontrol_delete: "確定要刪除這個 TweetControl?"
+  confirm_twitter_delete: "確定要與這個Twitter帳號解除連結?"
+  contact_us: "聯絡我們"
+  contact_us_no_email: "您需要提供一個有效的E-mail帳號"
+  contact_us_no_message: "請新增一個訊息到「聯絡我們」的表格中。"
+  contact_us_success: "您的訊息已成功送出。"
+  create_account: "建立帳戶"
+  create_model: "建立 %{model}"
+  created: "已建立"
+  data: "數據"
+  days: "天"
+  default: "預設"
+  delete: "刪除"
+  delete_model: "刪除 %{model}"
+  developer_info: "開發者資訊"
+  device_create: "新增裝置"
+  device_custom_mac: "輸入指定的 MAC Address"
+  device_default_name: "裝置"
+  device_default_gateway: "預設的 Gateway IP"
+  device_delete: "刪除裝置"
+  device_delete_message: "確定要刪除這個裝置?"
+  device_edit: "編輯裝置"
+  device_error: "您的裝置出現了些問題:"
+  device_ip_address: "公共 IP Address"
+  device_local_ip_address: "本地 IP Address"
+  device_local_port: "本地端口"
+  device_mac: "MAC Address"
+  device_mac_invalid: "無效的MAC Address."
+  device_model: "範本"
+  device_port: "公共端口的號碼"
+  device_random_mac: "生成隨機的 MAC Address"
+  device_submit_custom_mac: "儲存指定的 MAC Address"
+  device_subnet: "Subnet Mask"
+  device_title: "標題"
+  device_unique_mac: "生成獨特的 MAC Address"
+  device_update: "更新裝置"
+  devices: "裝置"
+  documentation: "文件資料"
+  download: "下載"
+  download_feeds: "以.CSV格式下載所有頻道的feeds。"
+  edit: "編輯"
+  edit_model: "編輯 %{model}"
+  elevation: "Elevation"
+  email: "Email"
+  email_address: 'email address'
+  export: "匯出"
+  featured_channels: "熱門頻道"
+  selected_channels: "頻道"
+  features: "頻道"
+  field: "欄位"
+  forgot: "忘記密碼了?"
+  forum: "論壇"
+  for_more_information: "更多資訊"
+  frequency: "頻率"
+  generate_thingtweet_arduino_code: "生成 ThingTweet Arduino Code"
+  get_started: "開始"
+  height: "高"
+  home_motto: "泰盛泰集雲"
+  home_tagline: "物聯網數據與感測器的控制平台。"
+  hour: '小時'
+  import: "匯入"
+  latitude: "緯"
+  longitude: "經"
+  median: "中位數"
+  member_since: "Member since"
+  message: "訊息"
+  message_field: "訊息欄"
+  metadata: 'metadata'
+  minute: "分"
+  minutes: "秒"
+  myaccount: "我的帳戶"
+  name: "名稱"
+  new: "新"
+  new_model: "新 %{model}"
+  note: "註解"
+  note_save: "儲存註解"
+  one_time: 'one time'
+  password: "密碼"
+  password_change: "更改密碼"
+  password_confirmation: "確認密碼"
+  password_current: "目前的密碼"
+  password_forgot: "忘記您的密碼了?"
+  password_forgot_message: "輸入您的E-mail，我們會寄送一個連結讓您重設密碼。"
+  password_incorrect: "目前的密碼輸入錯誤。"
+  password_new: "新建密碼"
+  password_reset_message1: "收到了重設您的密碼的請求"
+  password_reset_message2: "如果不是您本人請求重設密碼，請忽略這封E-mail並且注意您的帳戶安全"
+  password_reset_message3: "如果是您忘了密碼要重設密碼，請點擊以下連結："
+  password_reset_error: "重設新密碼時發生了錯誤"
+  password_reset_mailed: "重設新密碼的連結已經發送至您的E-mail了"
+  password_reset_subject: "密碼重設指引"
+  permission: "您沒有權限訪問這裡"
+  plugin: "插件"
+  plugin_chart: "Chart With Multiple Series"
+  plugin_create: "建立插件"
+  plugin_css: "CSS"
+  plugin_default_name: "插件"
+  plugin_delete_message: "要刪除這個插件嗎?"
+  plugin_error: "創建您的插件時出了問題:"
+  plugin_html: "HTML"
+  plugin_js: "JavaScript"
+  plugin_name: "名稱"
+  plugin_new_message: "選擇一個模板來使用您的插件。"
+  plugin_save_message: "插件已儲存"
+  plugin_template: "插件模板"
+  plugins: "插件"
+  plugin_public_flag: "開放公開?"
+  profile_bio: "Bio"
+  profile_edit: "編輯簡介"
+  profile_for: "簡介 for"
+  profile_not_public: "這是個不公開的簡介"
+  profile_not_public_me: "您的簡介不是公開的。"
+  profile_update: "更新簡介"
+  profile_view: "查看公開簡介"
+  profile_website: "網站"
+  public: "開放公開?"
+  public_profile: "公開簡介"
+  react: "React"
+  react_header_name: "名稱"
+  react_delete_confirm: "確定要刪除這個條件?"
+  react_thinghttp_error: "'%{thinghttp_name}' 請求不是屬於您的"
+  react_thingtweet_error: "'%{twitter_account_name}' 這個Twitter帳號不是屬於您的"
+  react_channel_error: "'%{channel_name}' 頻道不是屬於您的"
+  react_invalid_error: "%{value} 不是一個有效的值"
+  react_invalid_number_error: "%{value} is not a value field number"
+  react_invalid_condition_error: "%{value} 不是有效的條件值"
+  react_invalid_condition_type_error: "%{value} 不是有效的條件類型"
+  react_twitter_account_required: "您需要新增一個twitter帳戶才可以tweeting"
+  react_add_twitter_account: "新增Twitter帳戶"
+  react_thinghttp_required: "您需要新增一個 ThingHTTP請求"
+  react_add_thinghttp_req: "新增 ThingHTTP 請求"
+  react_tweet_cant_be_blank: "tweet 不能是空白的"
+  react_type_string: "字串"
+  react_type_status: "狀態"
+  react_type_numeric: "數字"
+  react_type_geo: "Geo"
+  react_type_nodata: "沒有數據檢查"
+  react_when_insert: "在數據插入"
+  react_when_10m: "每10分鐘"
+  react_when_30m: "每30分鐘"
+  react_when_60m: "每60分鐘"
+  react_condition_prefix: "如果頻道"
+  react_condition_field: "欄"
+  react_condition_contains: "包含"
+  react_condition_begins: "開始於"
+  react_condition_ends: "結束於"
+  react_condition_gt: "大於"
+  react_condition_gte: "大於等於"
+  react_condition_lt: "小於"
+  react_condition_lte: "小於等於"
+  react_condition_eq: "等於"
+  react_condition_ne: "不等於"
+  react_condition_within: "is within"
+  react_condition_further: "is further than"
+  react_condition_nodata_prefix: "尚未更新為"
+  react_condition_nodata_suffix: "分"
+  react_condition_geo: "km from"
+  react_latitude: "緯"
+  react_longitude: "經"
+  react_twitter_delete_warning1: "無法刪除 Twitter 帳號，因為它正在被 %{reacts_count}: %{reacts_list} 使用"
+  react_twitter_delete_warning2: "請先解除與 Twitter 帳號連結再刪除或修改這個 React。"
+  react_thinghttp_delete_warning1: "無法刪除這個 ThingHTTP 因為它正在被 %{reacts_count}: %{reacts_list} 使用"
+  react_thinghttp_delete_warning2: "請先解除與 ThingHTTP 連結再刪除或修改這個 React。"
+  react_default_name: "React"
+  react_delete_message: "要刪除這個 React 嗎?"
+  react_label_condition: "條件"
+  react_label_test_frequency: "測試頻率"
+  react_label_react_name: "React 名稱"
+  react_label_condition_type: "條件類型"
+  react_label_options: "選項"
+  react_action_tweet_prefix: "then tweet"
+  react_action_tweet_suffix: "使用 Twitter 帳戶"
+  react_action_thinghttp_prefix: "然後執行 ThingHTTP"
+  react_option_run_first_time: "只在第一次符合條件時執行動作"
+  react_option_run_every_time: "每次符合條件時都執行動作"
+  recurring: '重複'
+  remember_me: "記住我的User ID"
+  results: "結果"
+  save: "儲存"
+  save_model: "儲存 %{model}"
+  saved: "已儲存。"
+  saved_error: "儲存數據時發生錯誤。"
+  search: "尋找"
+  search_by_tag: "尋找 by tag"
+  search_by_username: "尋找 by 使用者名稱"
+  search_empty: "沒有找到。"
+  search_input_tag: "輸入 tag"
+  search_input_username: "輸入 使用者名稱"
+  signin: "登入"
+  signin_failure: "登入失敗"
+  signin_please: "登入以查看您的帳戶與頻道"
+  signin_try_again: "不正確的帳號或密碼，請重試看看"
+  signout: "登出"
+  signup: "註冊"
+  signup_header: "註冊以開始使用泰集雲吧!"
+  slug: "Slug"
+  social_channel: "社群頻道"
+  social_channel_create: "新增社群頻道"
+  social_channel_error_fields: "您的頻道至少要有一個欄位。"
+  social_channel_error_name_blank: "名稱不能是空白。"
+  social_channel_no_value: "請輸入一個值。"
+  social_channel_error_slug_blank: "Slug 不能是空白。"
+  social_channel_error_slug_exists: "Slug 已被使用。"
+  social_channel_new: "新的社群頻道"
+  social_saved: "已送出，謝謝!"
+  submit: "送出"
+  sum: "Sum"
+  support: "支援"
+  tag: "tag"
+  tags: "Tags"
+  tags_search: "搜尋頻道"
+  talkback: "TalkBack"
+  talkback_command_add: "新增一個命令"
+  talkback_command_command_string: "命令字串"
+  talkback_command_id: "命令 ID"
+  talkback_command_position: "位置"
+  talkback_command_remove: "移除命令"
+  talkback_commands: "命令"
+  talkback_delete_message: "要刪除這個 TalkBack?"
+  talkback_edit: "編輯 TalkBack"
+  talkback_error: "在建立 TalkBack 時發生了錯誤:"
+  talkback_id: "TalkBack ID"
+  talkback_name: "名稱"
+  talkback_new_api_key: "生成 API Key"
+  talkback_permission: "這個 TalkBack 不屬於您。"
+  talkback_required: "您需要新增一個 TalkBack"
+  thinghttp: "ThingHTTP"
+  thinghttp_auth_name: "HTTP 驗證用戶名稱"
+  thinghttp_auth_pass: "HTTP 驗證密碼"
+  thinghttp_body: "Body"
+  thinghttp_content_type: "內容類型"
+  thinghttp_default_name: "請求"
+  thinghttp_delete_message: "要刪除這個 ThingHTTP?"
+  thinghttp_error: "在建立 ThingHTTP 時出現了錯誤:"
+  thinghttp_header_add: "新增header"
+  thinghttp_header_name: "名稱"
+  thinghttp_header_remove: "移除header"
+  thinghttp_header_value: "值"
+  thinghttp_headers: "Headers"
+  thinghttp_host: "Host"
+  thinghttp_http_version: "HTTP 版本"
+  thinghttp_invalid_api_key: "無效的 API Key"
+  thinghttp_loop: "請別把 ThingHTTP 放近一個循環中!"
+  thinghttp_method: "方法"
+  thinghttp_name: "名稱"
+  thinghttp_new_api_key: "重新生成 API Key"
+  thinghttp_parse: "Parse String"
+  thinghttp_parse_error: "Error parsing document, try a different parse string."
+  thinghttp_permission: "您沒有觀看這個 ThingHTTP 的權限。"
+  thingtweet: "ThingTweet"
+  thingtweet_arduino_select_message: "選擇 Twitter 帳號使用這些 code"
+  thingtweet_back: "回到 ThingTweet"
+  timecontrol: "TimeControl"
+  timecontrols: "TimeControls"
+  timecontrol_action_talkback_command: "然後新增命令"
+  timecontrol_action_talkback_command_position: "在位置"
+  timecontrol_action_talkback_prefix: "給 TalkBack"
+  timecontrol_date: '日期'
+  timecontrol_days: '天'
+  timecontrol_delete_message: "要刪除這個 TimeControl 嗎?"
+  timecontrol_error: "在建立 TimeControl 時發生了錯誤:"
+  timecontrol_fuzzy_time: 'fuzzy time'
+  timecontrol_max_message: "您已經達到了用戶可用的 TimeControls 上限。 要增加新的 TimeControl 請先移除舊的不要的 TimeControl"
+  timecontrol_permission: "您沒有觀看這個 TimeControl 的權限。"
+  timecontrol_run_at: 'run at'
+  timecontrol_time: '時間'
+  timecontrol_talkback_delete_warning1: "無法刪除這個 TalkBack 因為它正在被 %{timecontrols_count}: %{timecontrols_list} 使用"
+  timecontrol_talkback_delete_warning2: "請先解除與 TalkBack 的連結再刪除或修改這個 TimeControl。"
+  timecontrol_twitter_delete_warning1: "無法刪除這個 Twitter 帳號，因為它正在被 %{timecontrols_count}: %{timecontrols_list} 使用"
+  timecontrol_twitter_delete_warning2: "請先解除與 Twitter 帳號連結再刪除或修改這個 TimeControl。"
+  timecontrol_thinghttp_delete_warning1: "無法刪除這個 ThingHTTP 因為它正在被 %{timecontrols_count}: %{timecontrols_list} 使用"
+  timecontrol_thinghttp_delete_warning2: "請先解除與 ThingHTTP 的連結再刪除或修改這個 TimeControl。"
+  timescale: "時間單位"
+  time_zone: "Time Zone"
+  title: "標題"
+  tos: "服務條款"
+  tos_agree: "註冊表示您同意這個"
+  try_again: "請再試一次!"
+  tutorials: "教學"
+  tweetcontrol: "TweetControl"
+  tweetcontrol_delete_message: "要刪除這個 TweetControl嗎?"
+  tweetcontrol_error: "在建立 TweetControl 時發生了一些問題:"
+  tweetcontrol_thinghttp: "ThingHTTP Action"
+  tweetcontrol_trigger: "觸發者"
+  twitter_delete: "解除帳號連結"
+  twitter_failure: "Twitter失敗"
+  twitter_invalid_api_key: "無效的 API Key"
+  twitter_link_account: "連結 Twitter 帳號"
+  twitter_link_success: "已成功與 ThingTweet 連結。"
+  twitter_new_api_key: "重新生成 API Key"
+  twitter_screen_name: "Twitter 帳號"
+  upload: "上傳"
+  upload_incorrect_format: "您的CSV檔的格式不正確。"
+  upload_select: "上傳CSV檔以將數據匯入這個頻道"
+  uploading: "上傳數據中..."
+  upload_successful: "上傳成功。"
+  upload_no_file: "選擇您要上傳的文件。"
+  upload_no_data: "上傳的文件是空的。"
+  url: "URL"
+  user: "使用者"
+  user_no_public_channels: "這個使用者沒有公開的頻道。"
+  user_not_found: "對不起，找不到這個使用者。"
+  user_public_channels: "公共頻道 for"
+  userid: "使用者 ID"
+  video_id: "Video ID"
+  view: "觀看"
+  vimeo: "Vimeo"
+  watched_channels: "觀看頻道"
+  watched_empty: "您沒有在觀看任何頻道"
+  watched_find: "去找些頻道觀看"
+  public_link: "公開"
+  private_link: "個人"
+  settings_link: "設定"
+  api_key_link: "API Key"
+  data_import_link: "數據 匯入 / 匯出"
+
+  width: "寬度"
+  youtube: "YouTube"
+
+# help section
+  help: "幫助"
+  help_api_documentation: "API 說明文件"
+  help_apps_talkback: "允許裝置執行佇列中的命令。"
+  help_apps_thinghttp: "建立自定義的 POSTs 或 GETs 到其他Web服務和檢索數據。"
+  help_apps_thingtweet: "連結您的 Twitter 帳戶到泰集雲，然後使用 API 發送 Twitter 訊息。"
+  help_apps_timecontrol: "自動在預定時間執行 ThingHTTP 或 ThingTweet 請求。"
+  help_apps_tweetcontrol: "監聽 Twitter 上的執行命令，然後執行。"
+  help_apps_react: "當您頻道中的數據滿足條件時就執行行動。。"
+  help_channel: "創建頻道 -- 可以使用於裝置，app或任何可以傳送數據到泰集雲的東西。"
+  help_channel_clear: "按下 \"清空頻道\" 按鈕只會刪掉所有這個頻道到目前搜集的數據。"
+  help_channel_ranking: "較高的完整性會讓您出現在公共頻道的較上方。"
+  help_channel_feed: "觀看數據"
+  help_channel_fields: "至多可以監聽8對關鍵字，關鍵字必須先添加才會儲存數據"
+  help_channel_import: "選擇一個硬碟上的CSV檔，匯入所有數據進入該頻道。您的CSV檔的第一列應該是日期欄。如果您的數據不包含時區訊息，慎選一個好的類型作為第一欄。"
+  help_channel_post: "透過 POST 或 GET 新增數據到:"
+  help_channel_post_example: "請包含您的寫入 API key 和一些數據，例如:"
+  help_channel_public: "讓這個頻道變成公開使得所有人都可以觀看數據，無需擁有 API keys."
+  help_channel_read_key: "讀取 API keys 可以讓其他人觀看您的頻道的饋送與圖表."
+  help_channel_read_key_note: "註釋僅供個人使用，記錄您給了誰讀取 keys。"
+  help_channel_update: "傳送數據中"
+  help_channel_url: "By using the URL field, you can provide a link to more information for your public channel, such as a blog post or webpage about the channel."
+  help_channel_video: "Add a video to the public view of your channel by providing a YouTube or Vimeo ID, which is found in the URL of your video."
+  help_channel_view: "查看您的頻道的數據進行："
+  help_channel_write_key: "使用您的寫入API Key來讀取或寫入數據到此頻道."
+  help_charts: "圖表幫助"
+  help_charts_embed: "嵌入代碼可添加到任何網頁以及您的自定義圖表將會出現在網頁."
+  help_charts_options: "利用您的選項以及點擊 \" 更新 \" 創造個性化的圖表."
+  help_device: "Add your device and store its info on ThingSpeak."
+  help_device_edit: "添加你的裝置於此頁面上, 您可以在下次頁面上指定的MAC地址."
+  help_device_show: "產生隨機MAC地址, 或使用ThingSpeak的保留MAC地址, 其中每一個都是獨一無二的."
+  help_plugins: "插件可以讓您創建自訂的HTML, JavaScript, 和 CSS 檔案。用於解析與顯示您的數據."
+  help_social_channel: "創建一個新的社會頻道，將訪問:"
+  help_social_channel_public: "All social channels are public. Use the Message Field to allow users to enter other data, such as a message to go along with their submission."
+  help_talkback: "發送序列命令到您的裝置以及TalkBack."
+  help_talkback_index: "Create a TalkBack and add some commands.  Your device can then execute the stored commands, and those commands will be removed from the queue."
+  help_talkback_channel: "If a channel log is set, executed commands will be automatically logged to the 'status' field of that channel."
+  help_talkback_commands_1: "指令可以在這裡添加或"
+  help_talkback_commands_2: "通過 API"
+  help_talkback_show: "要了解更多關於使用TalkBack, 我們建議您查看我們的"
+  help_thinghttp: "Use ThingHTTP to access other APIs or webpages and parse the responses. You can create and save a full HTTP request to any URL, and then easily access it by using your ThingHTTP API key."
+  help_thinghttp_edit: "Create your custom HTTP request on this page.  For example, try the following options:"
+  help_thinghttp_example: "This will send your HTTP GET request to Google Finance and parse the response for an element having an ID of ref_626307_c, which corresponds to the S&P 500 current price change for the day."
+  help_thinghttp_show: "You can now send your ThingHTTP request and view the response using the following URL:"
+  help_thingtweet: "ThingTweet acts as a proxy to Twitter so that your devices can update Twitter statuses without having to implement Open Authentication (OAuth)."
+  help_timecontrol_index: "Create a TimeControl to automatically execute ThingHTTP requests, update ThingTweet statuses, or add TalkBack commands at predetermined times."
+  help_timecontrol_show: "Your TimeControl will be automatically executed at the indicated time."
+  help_tweetcontrol: "Use TweetControl to listen to specific trigger words from Twitter, and then process a ThingHTTP request."
+  help_tweetcontrol_edit: "Select Anonymous TweetControl to allow anyone to trigger your TweetControl or fill in a specific Twitter Account (don't include the '@' sign)."
+  help_tweetcontrol_hashtag: "To trigger a TweetControl, you need to send a Twitter Status Update with at least the hashtag #thingspeak and the trigger word, for example:"
+  help_tweetcontrol_thinghttp: "Select a ThingHTTP request to use with this TweetControl. The ThingHTTP request will be executed when the TweetControl is triggered."
+  help_tweetcontrol_trigger: "填寫觸發監聽."
+  help_options: "更多幫助"
+  help_react: "React allows you to trigger a ThingHTTP request or send a tweet using ThingTweet when your ThingSpeak Channel meets a certain condition. "
+  help_react_edit: "更新您的反應"
+  help_react_edit1: "Select a condition type to correspond with the type of data you wish to check and set your condition values."
+  help_react_edit2: "Use the Test Frequency setting to choose to test your condition on every insert or on a periodic basis."
+  help_react_edit3: "Select ThingTweet or ThingHTTP as the action to be performed if the condition is met."
+
+  # unsorted
+  window_map: "頻道定位"
+  window_status: "頻道狀態更新"
+  window_channel_video: "頻道視頻"
+  window_field_chart: "Field %{field_number} 圖表"
+  window_plugin: "%{name} (Plugin)"
+  private_view: "私人檢視"
+  public_view: "公開檢視"
+  channel_settings: "Ch頻道設定"
+  data_import: "數據 匯入 / 匯出"
+  portlets_all_displayed: "顯示所有可用的窗口"
+  portlets_add: "點擊矩形將視窗添加至儀表板上"
+  add_portlets: "添加視窗"
+
+  # documentation error headers
+  error_code: "錯誤碼"
+  error_http_status: "HTTP 狀態"
+  error_message: "訊息"
+  error_details: "詳細資料"
+
+  # errors
+  error_codes:
+    error_auth_required:
+      message: "需要授權."
+      http_status: 401
+      details: "請提供適當的身份驗證信息."
+    error_resource_not_found:
+      message: "未找到資源"
+      http_status: 404
+      details: "未找到請求的資源, 請檢查URL並重試."
+    error_method_invalid:
+      message: "不允許的方法."
+      http_status: 405
+      details: "請使用正確的HTTP方法."
+    error_no_action:
+      message: "沒有操作執行."
+      http_status: 421
+      details: "伺服器試圖處理您的請求, 但未採取行動."
+    error_too_many_requests:
+      message: "過多的請求."
+      http_status: 429
+      details: "請稍等."
+
+  number:
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
+    format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
+      separator: "."
+      # Delimits thousands (e.g. 1,000,000 is a million) (always in groups of three)
+      delimiter: ","
+      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
+      precision: 3
+      # If set to true, precision will mean the number of significant digits instead
+      # of the number of decimal digits (1234 with precision 2 becomes 1200, 1.23543 becomes 1.2)
+      significant: false
+      # If set, the zeros after the decimal separator will always be stripped (eg.: 1.200 will be 1.2)
+      strip_insignificant_zeros: false
+
+    # Used in number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%u%n"
+        unit: "$"
+        # These five are to override number.format and are optional
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    # Used in number_to_percentage()
+    percentage:
+      format:
+        # These five are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+        # significant: false
+        # strip_insignificant_zeros: false
+        format: "%n%"
+
+    # Used in number_to_precision()
+    precision:
+      format:
+        # These five are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+        # significant: false
+        # strip_insignificant_zeros: false
+
+    # Used in number_to_human_size() and number_to_human()
+    human:
+      format:
+        # These five are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      # Used in number_to_human_size()
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      # Used in number_to_human()
+      decimal_units:
+        format: "%n %u"
+        # Decimal units output formatting
+        # By default we will only quantify some of the exponents
+        # but the commented ones might be defined or overridden
+        # by the user.
+        units:
+          # femto: Quadrillionth
+          # pico: Trillionth
+          # nano: Billionth
+          # micro: Millionth
+          # mili: Thousandth
+          # centi: Hundredth
+          # deci: Tenth
+          unit: ""
+          # ten:
+          #   one: Ten
+          #   other: Tens
+          # hundred: Hundred
+          thousand: 千
+          million: 百萬
+          billion: 十億
+          trillion: 兆
+          quadrillion: 萬億
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "半分鐘"
+      less_than_x_seconds:
+        one:   "少於1秒"
+        other: "少於  %{count} 秒"
+      x_seconds:
+        one:   "1 秒"
+        other: "%{count} 秒"
+      less_than_x_minutes:
+        one:   "少於一分鐘"
+        other: "少於  %{count} 分鐘"
+      x_minutes:
+        one:   "1 分鐘"
+        other: "%{count} 分鐘"
+      about_x_hours:
+        one:   "大約   1 小時"
+        other: "大約   %{count} 小時"
+      x_days:
+        one:   "1 天"
+        other: "%{count} 天"
+      about_x_months:
+        one:   "大約   1 月"
+        other: "大約   %{count} 月"
+      x_months:
+        one:   "1 月"
+        other: "%{count} 月"
+      about_x_years:
+        one:   "大約   1 年"
+        other: "大約   %{count} 年"
+      over_x_years:
+        one:   "超過   1 年"
+        other: "超過   %{count} 年"
+      almost_x_years:
+        one:   "幾乎   1 年"
+        other: "幾乎   %{count} 年"
+    prompts:
+      year:   "年"
+      month:  "月"
+      day:    "日"
+      hour:   "時"
+      minute: "分鐘"
+      second: "秒"
+
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "請選擇"
+
+    # Default translation keys for submit and button FormHelper
+    submit:
+      create: '創建   %{model}'
+      update: '更新   %{model}'
+      submit: '儲存   %{model}'
+
+# Devise translations
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+  devise:
+    confirmations:
+      confirmed: "您的帳戶已認證成功"
+      send_instructions: "在幾分鐘後，您的信箱將會收到一封認證信"
+      send_paranoid_instructions: "如果您的電子郵件地址存在於我們的資料庫中, 在幾分鐘內, 您將收到一封電子郵件，其中包含說明如何確認您的帳戶."
+    failure:
+      already_authenticated: "您已經登入"
+      inactive: "您的帳戶尚未生效"
+      invalid: "無效的登入名或密碼"
+      locked: "您的帳戶被鎖定"
+      last_attempt: "您嘗試太多次登入，帳號將被鎖定"
+      not_found_in_database: "無效的登入名或密碼"
+      timeout: "請重新登入"
+      unauthenticated: "您需要登入或註冊"
+      unconfirmed: "請先確認您的帳戶"
+    mailer:
+      confirmation_instructions:
+        subject: "確認指令"
+      reset_password_instructions:
+        subject: "重新設定密碼說明"
+      unlock_instructions:
+        subject: "解鎖指令"
+    omniauth_callbacks:
+      failure: "無法驗證您的身分 從 %{kind} 因為   \"%{reason}\"."
+      success: "成功驗證從 %{kind} 帳戶."
+    passwords:
+      no_token: "您不能訪問此頁面, 因有一封密碼重設郵件. 如果您有一封密碼重設郵件, 請確保您所使用URL完整性."
+      send_instructions: "在幾分鐘, 您將收到一封電子郵件, 說明如何重置密碼."
+      send_paranoid_instructions: "如果您的電子郵件地址存在於我們的資料庫中, 在幾分鐘內, 您將收到密碼恢復鏈接於您的電子郵件."
+      updated: "您的密碼更改成功. 請重新登入."
+      updated_not_active: "您的密碼更改成功."
+    registrations:
+      destroyed: "再見！您的帳戶已成功取消。我們希望再次見到你。"
+      signed_up: "歡迎！您已經成功登入"
+      signed_up_but_inactive: "您已成功登入. 然而, 我們無法登錄，因為您的帳戶尚未啟動."
+      signed_up_but_locked: "你已成功登入. 然而, 我們無法登錄，因為您的帳戶被鎖定."
+      signed_up_but_unconfirmed: "一個確認鏈接的消息已發送到您的電子郵件地址. 請點擊確認鏈接以完成啟用帳戶."
+      update_needs_confirmation: "您的帳戶已更新成功, 但需要驗證新的電子郵件地址, 請檢查您的電子郵件並點擊確認鏈接以完成確認新的電子郵件地址."
+      updated: "您已成功更新帳戶資料"
+    sessions:
+      signed_in: "登入成功"
+      signed_out: "登出成功"
+    unlocks:
+      send_instructions: "在幾分鐘內, 您會收到一封電子郵件, 其中包含說明如何解鎖您的帳戶."
+      send_paranoid_instructions: "如果您的帳戶存在, 在幾分鐘內, 您會收到一封電子郵件, 其中包含說明如何解鎖您的帳戶."
+      unlocked: "您的帳戶已被成功解鎖。請登入繼續。"
+  errors:
+    messages:
+      already_confirmed: "已經確認, 請再次登入"
+      confirmation_period_expired: "需要確認 %{period}, 請申請一個"
+      expired: "已過期，請重新申請"
+      not_found: "not found"
+      not_locked: "未鎖定"
+      not_saved:
+        one: "1 禁止錯誤 %{resource} 從被保存:"
+        other: "%{count} 禁止錯誤 %{resource} 從被保存:"
+

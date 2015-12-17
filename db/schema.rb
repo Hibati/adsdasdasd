@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121075201) do
+ActiveRecord::Schema.define(version: 20151203081741) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -121,6 +121,19 @@ ActiveRecord::Schema.define(version: 20151121075201) do
     t.string   "user_agent"
     t.string   "realtime_io_serial_number", limit: 36
     t.text     "metadata"
+    t.string   "When_this_stuff_happens"
+    t.string   "Event_1"
+    t.string   "Event_2"
+    t.string   "Then_do_these_things_1st"
+    t.string   "Event_3"
+    t.string   "Then_do_these_things_2st"
+    t.string   "Event_4"
+    t.string   "Then_do_these_things_3st"
+    t.string   "Event_5"
+    t.string   "Then_do_these_things_4st"
+    t.string   "Event_6"
+    t.string   "action_status"
+    t.string   "jid_id"
   end
 
   add_index "channels", ["latitude", "longitude"], name: "index_channels_on_latitude_and_longitude", using: :btree

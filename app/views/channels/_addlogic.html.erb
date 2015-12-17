@@ -1,0 +1,243 @@
+<%= stylesheet_link_tag 'main'%>
+
+
+	<div class="container_sw" hidden="hidden">
+		<%= label_tag "If" %>
+		<%= image_tag("Sw.png", width: '50', height: '50', :id=> 'Sw')%>
+	</div>
+  	<div class="container_temperature" hidden="hidden">
+		<%= label_tag "If" %>
+		<%= image_tag("Temperature.png", width: '78', height: '75', :id=> 'Temperature')%>
+		<%= select_tag :temp_selete , :id => 'temp_selete' %>
+	  	<%= select_tag :temp_selete_num , :id => 'temp_selete_num' %>
+	</div>
+	<div class="container_uv" hidden="hidden">
+		<%= label_tag "If" %>
+		<%= image_tag("Uv.png", width: '50', height: '50', :id=> 'UV')%>
+	</div>
+	<div class="container_sound" hidden="hidden">
+		<%= label_tag "If" %>
+		<%= image_tag("Sound.png", width: '50', height: '50', :id=> 'Sound')%>
+	</div>
+	<div class="container_gas" hidden="hidden">
+		<%= label_tag "If" %>
+		<%= image_tag("Gas.png", width: '50', height: '50', :id=> 'Gas')%>
+	</div>
+  	<div class="container_switch" hidden="hidden">
+		<%= label_tag "If" %>
+		<%= image_tag("Switch.png", width: '50', height: '50', :id=> 'Switch')%>
+	</div>
+  	<div class="container_pressure" hidden="hidden">
+		<%= label_tag "If" %>
+		<%= image_tag("Pressure.png", width: '50', height: '50', :id=> 'Pressure')%>
+	</div>
+	
+  	<div class="container_led" hidden="hidden">
+		<%= label_tag "Then" %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Ledopen.png", width: '50', height: '50', :id=> 'Led')%></li>
+			<li draggable="true"><%= image_tag("Airconditioning.png", width: '50', height: '50', :id=> 'Airconditioning')%></li>
+			<li draggable="true"><%= image_tag("Letter.png", width: '50', height: '50', :id=> 'Letter')%></li>
+			<li draggable="true"><%= image_tag("Times.png", width: '50', height: '50', :id=> 'Times')%></li>
+		</ul>
+	</div>
+
+  	<div id="drop-target-one" hidden="hidden" class="dropdrap"></div>
+  	
+  		<div id = "colledset" hidden = "hidden" class="colledset" >
+  			<table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5' align="left" >
+			<td align="center"><%= image_tag("Ledopen.png", width: '50', height: '50', :id=> 'Led')%></td><td align="center"><%= select_tag :led_selete , :id => 'led_selete' %></td>
+			</table>
+  		</div>
+  		
+  		<div id = "colairset" hidden = "hidden" class="colairset" >
+  			<table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5' align="left" >
+			<td align="center"><%= image_tag("Airconditioning.png", width: '50', height: '50', :id=> 'Airconditioning')%></td><td align="center"><%= select_tag :air_selete , :id => 'air_selete' %></td> 
+			</table>
+  		</div>
+  		
+  		<div id = "coltimesset" hidden = "hidden" class="coltimesset" >
+  			<table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5' align="left" >
+			<td align="center"><%= image_tag("Times.png", width: '50', height: '50', :id=> 'Times')%></td><td align="center"><%= select_tag :times_selete , :id => 'times_selete' %></td> 
+			</table>
+  		</div>
+		
+<br><br><br>
+
+<div class="FL">
+
+  <%= form_for @channel, :html => {:method => 'put'} do |c| %>
+   <% unless session[:errors].nil?
+      session[:errors].each do |attr, msg|
+        @channel.errors.add(attr, msg)
+      end
+      session[:errors] = nil %>
+   <% end %>
+	<div>
+    <p>
+      <%= error_messages_for 'channel', :header_message => t(:try_again), :message => t(:channel_error) %>
+    </p>
+    <input name='userlogin' class='userlogin' />
+    <table class="table_no_header">
+      <tr>
+        <td class="left"><%= t(:channel_ranking) %></td>
+        <td><%= @channel.ranking %>%</td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:channel_id) %></td>
+        <td><%= @channel.id %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:channel_name) %></td>
+        <td><%= c.text_field :name %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:When_this_stuff_happens) %></td>
+        <td><%= c.text_field :When_this_stuff_happens %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Event_1) %></td>
+        <td><%= c.text_field :Event_1 %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Event_2) %></td>
+        <td><%= c.text_field :Event_2 %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Then_do_these_things_1st) %></td>
+        <td><%= c.text_field :Then_do_these_things_1st, :value => 'Null' %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Event_3) %></td>
+        <td><%= c.text_field :Event_3, :value => 'Null'  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Then_do_these_things_2st) %></td>
+        <td><%= c.text_field :Then_do_these_things_2st, :value => 'Null'  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Event_4) %></td>
+        <td><%= c.text_field :Event_4, :value => 'Null'  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Then_do_these_things_3st) %></td>
+        <td><%= c.text_field :Then_do_these_things_3st, :value => 'Null'  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Event_5) %></td>
+        <td><%= c.text_field :Event_5, :value => 'Null'  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Then_do_these_things_4st) %></td>
+        <td><%= c.text_field :Then_do_these_things_4st, :value => 'Null'  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:Event_6) %></td>
+        <td><%= c.text_field :Event_6, :value => 'Null'  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 1</td>
+        <td><%= c.text_field :field1, :class => 'field' %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 2</td>
+        <td><%= c.text_field :field2, :class => 'field', :value => '' %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 3</td>
+        <td><%= c.text_field :field3, :class => 'field', :value => ''  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 4</td>
+        <td><%= c.text_field :field4, :class => 'field', :value => ''  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 5</td>
+        <td><%= c.text_field :field5, :class => 'field', :value => ''  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 6</td>
+        <td><%= c.text_field :field6, :class => 'field', :value => ''  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 7</td>
+        <td><%= c.text_field :field7, :class => 'field', :value => ''  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 8</td>
+        <td><%= c.text_field :field8, :class => 'field', :value => ''  %></td>
+      </tr>
+      <tr>
+        <td class="left"><%= t(:channel_description) %></td>
+        <td><%= c.text_area :description, :cols => 30, :rows => 4 %></td>
+      </tr>
+      <%= fields_for :tags do |t| %>
+        <tr>
+          <td class="left"><%= t(:tags) %></td>
+          <td><%= t.text_area :name, :cols => 30, :rows => 2, :value => @channel.list_tags %></td>
+        </tr>
+      <% end %>
+      
+      <tr>
+        <td class="left"><%= t(:public) %></td>
+        <td><%= c.check_box :public_flag %></td>
+      </tr>
+      </div>
+      <tr>
+        <td class="left"></td>
+        <td><%= c.submit t(:save_model, model: 'Channel'), :onclick => "test()", class: 'btn btn-primary' %></td>
+      </tr>
+    </table>
+  <% end %>
+  
+  <br><br>
+   
+  <h3><%= t(:channel_clear_message) %></h3>
+  <button onclick = "location.reload()">Clear Logic</button>
+  
+  <br><br>
+
+  <h4><%= t(:channel_delete_message) %></h4>
+  <%= button_to t(:delete_model, model: 'Channel'), channel_path(@channel.id), :method => 'delete', :data => { :confirm => t(:confirm_channel_delete) }, class: 'btn btn-danger' %>
+</div>
+
+<script type="text/javascript">
+  // remember default field label
+  var default_label = '<%= t(:channel_default_field) %>';
+  // when document is ready
+  $(document).on('page:load ready', function() {
+    // iterate through each field textbox
+    $('.field').each(function() {
+      // if a value is present, show the 'remove' checkbox
+      if ($(this).val()) {
+        $(this).after('<span class="small" id="span_' + $(this).attr('id') + '"><input type="checkbox" onclick="removeField(\'' + $(this).attr('id') + '\')"  /><span class="up2">remove field</span></span>');
+      // else disable
+      } else {
+        $(this).after('<span class="small" id="span_' + $(this).attr('id') + '"><input type="checkbox" onclick="addField(\'' + $(this).attr('id') + '\')"  /><span class="up2">add field</span></span>');
+      }
+    });
+
+  });
+
+  // adds a field
+  function addField(id) {
+    $('#span_'+id).remove()
+    $('#'+id).val(default_label + ' ' + id.substring(id.length-1));
+    $('#'+id).after('<span class="small" id="span_' + id + '"><input type="checkbox" onclick="removeField(\'' + id + '\')"  /><span class="up2">remove field</span></span>');
+    $('#'+id).select();
+  }
+
+  // removes a field
+  function removeField(id) {
+    $('#span_'+id).remove();
+    $('#'+id).val('');
+    $('#'+id).after('<span class="small" id="span_' + id + '"><input type="checkbox" onclick="addField(\'' + id + '\')"  /><span class="up2">add field</span></span>');
+  }
+  
+  function test(){
+  	var status = "<%= @channel.action_status %>"
+  	if status == "running"{
+  		alert("Plase stop your logics!")
+  	}
+  }
+</script>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<%= 'hello stopppppp'%>
+
+
+<table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>When this stuff happens</th>
+      <th>Event 1</th>
+      <th>Event 2</th>
+      <th>Then do these thing 1st</th>
+      <th>Event 3</th>
+      <th>Then do these thing 2st</th>
+      <th>Event 4</th>
+      <th>Then do these thing 3st</th>
+      <th>Event 5</th>
+      <th>Then do these thing 4st</th>
+      <th>Event 6</th>
+      <th colspan="0"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+        <td align="center"><%= @channel.id %></td>
+        <td align="center"><%= image_tag(@channel.When_this_stuff_happens + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Event_1 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Event_2 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Then_do_these_things_1st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Event_3 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Then_do_these_things_2st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Event_4 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Then_do_these_things_3st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Event_5 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Then_do_these_things_4st + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= image_tag(@channel.Event_6 + '.png', width: '50', height: '50') %></td>
+        <td align="center"><%= link_to "Back", { :controller => "channels", :action => "show"}, class: 'btn btn-danger' %></td>
+  </tbody>
+</table>

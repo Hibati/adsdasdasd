@@ -70,38 +70,6 @@
         </td>
       </tr>
       <tr>
-        <td class="left"><%= t(:field) %> 1</td>
-        <td><%= c.text_field :field1, :class => 'field' %></td>
-      </tr>
-      <tr>
-        <td class="left"><%= t(:field) %> 2</td>
-        <td><%= c.text_field :field2, :class => 'field' %></td>
-      </tr>
-      <tr>
-        <td class="left"><%= t(:field) %> 3</td>
-        <td><%= c.text_field :field3, :class => 'field' %></td>
-      </tr>
-      <tr>
-        <td class="left"><%= t(:field) %> 4</td>
-        <td><%= c.text_field :field4, :class => 'field' %></td>
-      </tr>
-      <tr>
-        <td class="left"><%= t(:field) %> 5</td>
-        <td><%= c.text_field :field5, :class => 'field' %></td>
-      </tr>
-      <tr>
-        <td class="left"><%= t(:field) %> 6</td>
-        <td><%= c.text_field :field6, :class => 'field' %></td>
-      </tr>
-      <tr>
-        <td class="left"><%= t(:field) %> 7</td>
-        <td><%= c.text_field :field7, :class => 'field' %></td>
-      </tr>
-      <tr>
-        <td class="left"><%= t(:field) %> 8</td>
-        <td><%= c.text_field :field8, :class => 'field' %></td>
-      </tr>
-      <tr>
         <td class="left"></td>
         <td><%= c.submit t(:save_model, model: 'Channel'), class: 'btn btn-primary' %></td>
       </tr>
@@ -137,37 +105,3 @@
     </li>
   </ul>
 </div>
-<script type="text/javascript">
-  // remember default field label
-  var default_label = '<%= t(:channel_default_field) %>';
-  // when document is ready
-  $(document).on('page:load ready', function() {
-    // iterate through each field textbox
-    $('.field').each(function() {
-      // if a value is present, show the 'remove' checkbox
-      if ($(this).val()) {
-        $(this).after('<span class="small" id="span_' + $(this).attr('id') + '"><input type="checkbox" onclick="removeField(\'' + $(this).attr('id') + '\')"  /><span class="up2">remove field</span></span>');
-      // else disable
-      } else {
-        $(this).after('<span class="small" id="span_' + $(this).attr('id') + '"><input type="checkbox" onclick="addField(\'' + $(this).attr('id') + '\')"  /><span class="up2">add field</span></span>');
-      }
-    });
-
-  });
-
-  // adds a field
-  function addField(id) {
-    $('#span_'+id).remove()
-    $('#'+id).val(default_label + ' ' + id.substring(id.length-1));
-    $('#'+id).after('<span class="small" id="span_' + id + '"><input type="checkbox" onclick="removeField(\'' + id + '\')"  /><span class="up2">remove field</span></span>');
-    $('#'+id).select();
-  }
-
-  // removes a field
-  function removeField(id) {
-    $('#span_'+id).remove();
-    $('#'+id).val('');
-    $('#'+id).after('<span class="small" id="span_' + id + '"><input type="checkbox" onclick="addField(\'' + id + '\')"  /><span class="up2">add field</span></span>');
-  }
-</script>
-

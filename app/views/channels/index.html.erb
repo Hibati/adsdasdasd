@@ -5,13 +5,9 @@
 
     <div class="col-pad" data-no-turbolink>
 
-      <%= button_to t(:new_model, model: 'Channel'), channels_path, :method => :post, :class => 'btn btn-primary' %><br>
-<%= button_to t(:new_model, model: 'Device'), new_device_path, :method => :get, :class => 'btn btn-primary' %><br>
-      
-      
-      <%= button_to t(:new_model, model: 'Logics'), new_dlogic_path, :method => :get, :class => 'btn btn-primary' %><br>
- 
-      
+
+	<%= button_to t(:new_model, model: 'Device'), new_device_path, :method => :get, :class => 'btn btn-primary' %><br>
+
       <% if @channels.length > 0 %>
 
         <table class="table table-striped table-bordered tablesorter" data-no-turbolink>
@@ -38,6 +34,8 @@
                     <%= link_to t(:settings_link), channel_path(channel.id, :anchor => 'channelsettings'), class: 'btn btn-default' %>
                     <%= link_to t(:api_key_link), channel_path(channel.id, :anchor => 'apikeys'), class: 'btn btn-default' %>
                     <%= link_to t(:data_import_link), channel_path(channel.id, :anchor => 'dataimport'), class: 'btn btn-default' %>
+                  	<%= link_to t(:logic_link), channel_path(channel.id, :anchor => 'addlogic'), class: 'btn btn-default' %>
+                  
                   </div>
 
                 </td>

@@ -84,38 +84,3 @@
 
 <h2><%= t(:channel_delete_message) %></h2>
 <%= button_to t(:channel_delete), channel_path(@channel), :method => 'delete', :confirm => t(:confirm_channel_delete) %>
-
-<script type="text/javascript">
-	// remember default field label
-	var default_label = '<%= t(:channel_default_field) %>';
-	// when document is ready
-	$(function() {
-
-		// iterate through each field textbox
-		$('.field').each(function() {
-			// if a value is present, show the 'remove' checkbox
-			if ($(this).val()) {
-				$(this).after('<span class="small" id="span_' + $(this).attr('id') + '"><input type="checkbox" onclick="removeField(\'' + $(this).attr('id') + '\')"  /><span class="up2">remove field</span></span>');
-			// else disable
-			} else {
-				$(this).after('<span class="small" id="span_' + $(this).attr('id') + '"><input type="checkbox" onclick="addField(\'' + $(this).attr('id') + '\')"  /><span class="up2">add field</span></span>');
-			}
-		});
-
-	});
-
-	// adds a field
-	function addField(id) {
-		$('#span_'+id).remove()
-		$('#'+id).val(default_label + ' ' + id.substring(id.length-1));
-		$('#'+id).after('<span class="small" id="span_' + id + '"><input type="checkbox" onclick="removeField(\'' + id + '\')"  /><span class="up2">remove field</span></span>');
-		$('#'+id).select();
-	}
-
-	// removes a field
-	function removeField(id) {
-		$('#span_'+id).remove();
-		$('#'+id).val('');
-		$('#'+id).after('<span class="small" id="span_' + id + '"><input type="checkbox" onclick="addField(\'' + id + '\')"  /><span class="up2">add field</span></span>');
-	}
-</script>

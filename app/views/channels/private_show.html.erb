@@ -19,6 +19,7 @@
     <li><a href="#channelsettings"><%= t("channel_settings") %></a></li>
     <li><a href="#apikeys"><%= t("api_keys") %></a></li>
     <li><a href="#dataimport"><%= t("data_import") %></a></li>
+    <li><a href="#addlogic"><%= t("logic_link") %></a></li>
   </ul>
 
   <div id="privateview">
@@ -40,7 +41,11 @@
   <div id="dataimport">
     <%= render :partial => "import" %>
   </div>
-
+  
+  <!-- New dora list -->
+  <div id="addlogic">
+    <%= render :partial => "addlogic" %>
+  </div>
 
 </div>
 

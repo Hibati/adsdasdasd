@@ -2,22 +2,22 @@
 
     <div id="home-top-center">
         <div id="home-motto">
-            <h1>泰盛物聯網 泰集雲</h1>
-
+            <h1><%= t(:home_motto) %></h1>
+      		<%= t(:home_tagline) %>
         </div>
 
         <br>
         <br>
 
         <div>
-            <%= link_to t(:開始), new_user_registration_path, :class => 'btn btn-success btn-lg' %>
+            <%= link_to t(:get_started), new_user_registration_path, :class => 'btn btn-success btn-lg' %>
             <br>
             <br>
             
 			<!--
-            <a href="http://www.iots.com.tw/?page_id=73" target="_blank"><%= t(:文件) %></a>
+            <a href="http://www.iots.com.tw/?page_id=73" target="_blank"><%= t(:documentation) %></a>
             &nbsp; | &nbsp;
-            <a href="http://www.iots.com.tw/?page_id=303" target="_blank"><%= t(:支援)%></a>
+            <a href="http://www.iots.com.tw/?page_id=303" target="_blank"><%= t(:support)%></a>
 			-->
 			
         </div>
@@ -38,11 +38,11 @@
     <div class="jumbotron">
         <h1>讓我們開始吧!</h1> #get started
         <p>
-            如果你正想建立物聯網, <%= link_to t(:註冊), new_user_registration_path, :class => 'btn btn-primary btn-sm' %> 一個免費的開發者賬戶.
+            如果你正想建立物聯網, <%= link_to t(:signup), new_user_registration_path, :class => 'btn btn-primary btn-sm' %> 一個免費的開發者賬戶.
         </p>
         <p>
             <a href="/docs" target="_blank" class="btn btn-info btn-lg btn-margin">最新資訊</a>
-            <a id="contact_link" class="btn btn-success btn-lg btn-margin"><%= t(:聯繫我們) %></a>
+            <a id="contact_link" class="btn btn-success btn-lg btn-margin"><%= t(:contact_us) %></a>
         </p>
         <div id="contact_form">
             <br>

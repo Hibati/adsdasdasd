@@ -17,4 +17,4 @@
 //= require ./docs.js
 //= require ./custom.js
 //= require ./devices.js.coffee
-//= require ./draggable_o.js
+//= require ./dlogics.js.coffee

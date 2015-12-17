@@ -1,6 +1,4 @@
-
-<%= javascript_include_tag('devices.js.coffee') %>
-
+<%= stylesheet_link_tag 'main'%>
 <%= link_to "Home","#", :id => 'my-link' %>
 
 <a href="#" data-background-color="#990000">Paint it red</a>
@@ -8,13 +6,13 @@
 <a href="#" data-background-color="#000099" data-text-color="#FFFFFF">Paint it blue</a>
 
 
-
 <%= form_tag controller: "devices", action: "create", method: "get", class: "nifty_form" do %>
   <%= label_tag :device_type, "Device Type:" %>
-  <%= select_tag :device_type ,"<option>actuator</option><option>Sensor</option>".html_safe, :id => 'device_type'  %>
+  <%= select_tag :device_type ,"<option>Actuator</option><option>Sensor</option>".html_safe, :id => 'device_type'  %>
   <%= label_tag :device, "Device:" %>
-  <%= select_tag :device , :id => 'device' %>
-  <%= submit_tag "Create The Device"  %>
+  <%= select_tag :device , :id => 'device'%>
+    
+  <%= submit_tag "Create The Device" %>
 <% end %>
 
 

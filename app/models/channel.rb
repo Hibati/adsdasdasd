@@ -66,6 +66,7 @@ class Channel < ActiveRecord::Base
   has_many :tags, :through => :taggings
   has_many :comments, :dependent => :destroy
   has_many :windows, :dependent => :destroy, :autosave => true
+  has_many :dlogics ## add logic
   accepts_nested_attributes_for :tags
 
   self.include_root_in_json = true

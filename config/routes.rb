@@ -100,7 +100,18 @@ Thingspeak::Application.routes.draw do
       post :clear
       put :watch
       post :realtime_update
+      
+
+      get :drive_run
+      get :drive_stop
+      get :drive_edit
+      get :drive_update
+      
     end
+    
+    get '/channels/:channel_id/drive_update' => "channels#drive_update",    :as => "drive_update_channels"
+    
+    
     resources :feed
 
     resources :feeds, :to => 'feed'

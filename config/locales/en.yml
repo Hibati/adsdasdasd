@@ -40,6 +40,7 @@ en:
   channel_default_field: "Field Label"
   channel_default_name: "Channel"
   channel_delete_message: "Want to delete this channel?"
+  channel_clear_message: "Want to clear this channel?"
   channel_description: "Description"
   channel_directions: "Directions"
   channel_id: "Channel ID"
@@ -728,4 +729,10 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  #i18n dropdown list      
+  locale_which: "Language"
+  locale_Chinese: "Chinese"
+  locale_English: "English"
+  locale_Italian: "Italian"
+  locale_Brazilian_Portuguese: "Brazilian Portuguese"
 

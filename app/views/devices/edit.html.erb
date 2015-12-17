@@ -1,0 +1,93 @@
+<%= stylesheet_link_tag 'main'%>
+<%= javascript_include_tag 'devices.js.coffee'%>
+<%= link_to "Home","#", :id => 'my-link' %>
+
+<a href="#" data-background-color="#990000">Paint it red</a>
+<a href="#" data-background-color="#009900" data-text-color="#FFFFFF">Paint it green</a>
+<a href="#" data-background-color="#000099" data-text-color="#FFFFFF">Paint it blue</a>
+
+
+<%= form_tag controller: "devices", action: "update", method: "get" do %>
+  <%= label_tag :device_type, "Device Type:" %>
+  <%= select_tag :device_type ,"<option>Actuator</option><option>Sensor</option>".html_safe, :id => 'device_type'  %>
+  <%= label_tag :device, "Device:" %>
+  <%= select_tag :device , :id => 'device'%>
+  
+	<div class="container_sw" hidden="hidden">
+		<%= label_tag "When this stuff happen" %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Sw.png", width: '50', height: '50', :id=> 'Sw')%></li>
+		</ul>
+	</div>
+  	<div class="container_temperature" hidden="hidden">
+		<%= label_tag "When this stuff happen" %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Temperature.png", width: '78', height: '75', :id=> 'Temperature')%></li>
+		</ul>
+	</div>
+	<div class="container_uv" hidden="hidden">
+		<%= label_tag "When this stuff happen" %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Uv.png", width: '50', height: '50', :id=> 'UV')%></li>
+		</ul>
+	</div>
+	<div class="container_sound" hidden="hidden">
+		<%= label_tag "When this stuff happen" %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Sound.png", width: '50', height: '50', :id=> 'Sound')%></li>
+		</ul>
+	</div>
+	<div class="container_gas" hidden="hidden">
+		<%= label_tag "When this stuff happen" %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Gas.png", width: '50', height: '50', :id=> 'Gas')%></li>
+		</ul>
+	</div>
+  	<div class="container_switch" hidden="hidden">
+		<%= label_tag "When this stuff happen" %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Switch.png", width: '50', height: '50', :id=> 'Switch')%></li>
+		</ul>
+	</div>
+  	<div class="container_pressure" hidden="hidden">
+		<%= label_tag "When this stuff happen" %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Pressure.png", width: '50', height: '50', :id=> 'Pressure')%></li>
+		</ul>
+	</div>
+  
+  	<div id="drop-target-one" hidden="hidden" class="dropdrap"></div>
+  	
+  	<div class="drop-target-one-selete" hidden="hidden" >
+	  	<div id="drop-target-one-selete">
+	  		<%= select_tag :temp_selete , :id => 'temp_selete' %>
+	  		<%= select_tag :temp_selete_num , :id => 'temp_selete_num' %>
+	  	</div>
+  	</div>
+  	<div class="container_led" hidden="hidden">
+		<%= label_tag "Then do these things ... " %>
+		<ul id="drag-elements">
+			<li draggable="true"><%= image_tag("Ledopen.png", width: '50', height: '50', :id=> 'Led')%></li>
+		</ul>
+	</div>
+  
+  	<div id="drop-target-two" hidden="hidden" class="dropdraptwo"></div>
+  	
+  	<div class="drop-target-two-selete" hidden="hidden" >
+	  	<div id="drop-target-two-selete">
+	  		<%= select_tag :led_selete , :id => 'led_selete' %>
+	  	</div>
+  	</div>
+  	
+    	<%= hidden_field_tag 'When_this_stuff_happens', 'Null'%>
+    	<%= hidden_field_tag 'Then_do_these_things_1st', 'Null' %>
+    	<%= hidden_field_tag 'Then_do_these_things_2st', 'Null' %>
+    	<%= hidden_field_tag 'Then_do_these_things_3st', 'Null' %>
+    	<%= hidden_field_tag 'Then_do_these_things_4st', 'Null' %>
+    	
+    
+  <%= submit_tag "Update The Device" %>
+<% end %>
+
+
+

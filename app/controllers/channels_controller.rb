@@ -7,7 +7,20 @@ class ChannelsController < ApplicationController
   protect_from_forgery :except => [:realtime, :realtime_update, :post_data, :create, :destroy, :clear]
   require 'csv'
   require 'will_paginate/array'
-
+  
+  
+  require 'json'   
+  require 'open-uri'
+  require 'thread'
+  require 'temp_and_led_worker.rb'
+  require 'temp_and_led_air_worker.rb'
+  require 'pm_and_led_worker.rb'
+  
+  @@talw = []
+  @@talaw = []
+  @@palw = []
+    
+    
   # get list of all realtime channels
   def realtime
     # error if no key
@@ -75,7 +88,86 @@ class ChannelsController < ApplicationController
       format.xml { render :xml => Channel.paginated_hash(@channels).to_xml(:root => 'response') }
     end
   end
+  
+  ##New by Dora
+  def drive_run
+    @channel = Channel.find(params[:id])
+    @user_id = @channel.user_id
+    @apikeyvalue = ApiKey.where(channel_id: @channel.id, write_flag: 1).first.api_key
+    when_this_stuff_happens = @channel.When_this_stuff_happens
+    @event1 = @channel.Event_1
+    @event2 = @channel.Event_2
+    then_do_these_things_1st = @channel.Then_do_these_things_1st
+    @event3 = @channel.Event_3
+    then_do_these_things_2st = @channel.Then_do_these_things_2st
+    @event4 = @channel.Event_4
+    then_do_these_things_3st = @channel.Then_do_these_things_3st
+    @event5 = @channel.Event_5
+    then_do_these_things_4st = @channel.Then_do_these_things_4st
+    @event6 = @channel.Event_6
+    
+    my_thread_id = ""
+    if @channel.jid_id == ""
+      if when_this_stuff_happens == 'Temperature' && then_do_these_things_1st == "Led" && then_do_these_things_2st == "Airconditioning"
+        puts "====================== controller Temperature & Led & Airconditioning ============================"
+        @event5e = User.find(@user_id).email
+        @@talaw << Thread.new do
+          my_thread_id = Thread.current.object_id
+          ob = TempAndLedAirWorker.new
+          ob.perform(@channel.id, @event1, @event2, @event3, @event4, @event5e, @event6, @apikeyvalue)
+        end
+      elsif when_this_stuff_happens == 'Temperature' && then_do_these_things_1st == "Led"
+        puts "====================== controller Temperature & Led ============================"
+        @@talw << Thread.new do
+          my_thread_id = Thread.current.object_id
+          ob = TempAndLedWorker.new
+          ob.perform(@channel.id, @event1, @event2, @event3, @apikeyvalue)
+        end
+      elsif when_this_stuff_happens == 'PM2.5' && then_do_these_things_1st == "Led"
+        puts "====================== controller PM2.5 ============================"
+        @@palw << Thread.new do
+          my_thread_id = Thread.current.object_id
+          ob = PmAndLedWorker.new
+          @apikeyvalue2 = ApiKey.where(channel_id: "33", write_flag: 1).first.api_key
+          ob.perform(@channel.id, @event1, @event2, @event3, @apikeyvalue2)
+        end
+      end
+      Channel.find(params[:id]).update(:action_status => 'running', :jid_id => my_thread_id ) 
+    end
+  
+  
+  end
+  
+  def drive_stop
+    @channel = Channel.find(params[:id])
+    when_this_stuff_happens = @channel.When_this_stuff_happens
+    then_do_these_things_1st = @channel.Then_do_these_things_1st
+    then_do_these_things_2st = @channel.Then_do_these_things_2st
+    then_do_these_things_3st = @channel.Then_do_these_things_3st
+    then_do_these_things_4st = @channel.Then_do_these_things_4st
+    job_test = Channel.find(params[:id]).jid_id
+    
+    if when_this_stuff_happens == 'Temperature' && then_do_these_things_1st == "Led" && then_do_these_things_2st == "Airconditioning"
+      @@talaw.each { |thr| thr.exit if thr.object_id.to_s == job_test }
+    elsif when_this_stuff_happens == 'Temperature' && then_do_these_things_1st == "Led"
+      @@talw.each { |thr| thr.exit if thr.object_id.to_s == job_test }
+    elsif when_this_stuff_happens == 'PM2.5' && then_do_these_things_1st == "Led"
+      @@palw.each { |thr| thr.exit if thr.object_id.to_s == job_test }
+    end
+    
+    $cron_thread_talwb.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
+    $cron_thread_palwb.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
+    #$cron_thread_talawb.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
+      
+    Channel.find(params[:id]).update(:action_status => 'stop', :jid_id => "" )
+     
+  end
+  
+  def addlogic
+    get_channel_data
+  end
 
+  
   # widget for social feeds
   def social_feed
     # get domain based on ssl
@@ -192,12 +284,13 @@ class ChannelsController < ApplicationController
   def edit
     get_channel_data
   end
+ 
 
   def update
     # get the current user or find the user via their api key
     @user = current_user || User.find_by_api_key(get_apikey)
     @channel = @user.channels.find(params[:id])
-
+    
     # make updating attributes easier for updates via api
     params[:channel] = params if params[:channel].blank?
 
@@ -263,6 +356,10 @@ class ChannelsController < ApplicationController
     # get the current user or find the user via their api key
     @user = current_user || User.find_by_api_key(get_apikey)
     @channel = @user.channels.find(params[:id])
+    job_test = @channel.jid_id
+    @@thr.each { |thr| thr.exit if thr.object_id.to_s == job_test }
+    $cron_thread.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
+      
     @channel.destroy
     respond_to do |format|
       format.json { render :json => @channel.to_json(Channel.public_options) }
@@ -571,7 +668,7 @@ class ChannelsController < ApplicationController
 
     # only allow these params
     def channel_params
-      params.require(:channel).permit(:name, :url, :description, :metadata, :latitude, :longitude, :field1, :field2, :field3, :field4, :field5, :field6, :field7, :field8, :elevation, :public_flag, :status, :video_id, :video_type)
+      params.require(:channel).permit(:name, :url, :description, :metadata, :latitude, :longitude, :field1, :field2, :field3, :field4, :field5, :field6, :field7, :field8, :elevation, :public_flag, :status, :video_id, :video_type, :When_this_stuff_happens, :Event_1, :Event_2, :Then_do_these_things_1st, :Event_3, :Then_do_these_things_2st, :Event_4, :Then_do_these_things_3st, :Event_5, :Then_do_these_things_4st, :Event_6)
     end
 
     # determine if the date can be parsed

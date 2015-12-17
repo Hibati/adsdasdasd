@@ -11,6 +11,31 @@
   </div>
 </div>
 
+<div align="center">
+  <table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5'>
+
+      <%= form_for @channel do |c| %>
+        <tr>
+          <td align="center"><%= @channel.id %></td>
+          <td align="center"><%= @channel.When_this_stuff_happens %></td>
+          <td align="center"><%= @channel.Event_1 %></td>
+          <td align="center"><%= @channel.Event_2 %></td>
+          <td align="center"><%= @channel.Then_do_these_things_1st %></td>
+          <td align="center"><%= @channel.Event_3 %></td>
+          <td align="center"><%= @channel.Then_do_these_things_2st %></td>
+          <td align="center"><%= @channel.Event_4 %></td>
+          <td align="center"><%= @channel.Then_do_these_things_3st %></td>
+          <td align="center"><%= @channel.Event_5 %></td>
+          <td align="center"><%= @channel.Then_do_these_things_4st %></td>
+          <td align="center"><%= @channel.Event_6 %></td>
+          <td align="center"><%= link_to "Running", { :controller => 'channels', :action => 'drive_run'}, class: 'btn btn-danger' %></td>
+          <td align="center"><%= link_to "Stop", { :controller => 'channels', :action => 'drive_stop'}, class: 'btn btn-danger' %></td> 
+        </tr>
+      <% end %>
+  </table>
+</div>
+
+
 <div class="commentlink" >
   <% if !current_user %>
   <%= link_to t(:comment_add), channel_comments_path(@channel), :class => 'boldlink' %>

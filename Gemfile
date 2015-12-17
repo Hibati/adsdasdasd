@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.5'
 gem 'jquery-rails', '3.0.4'
 gem 'rails_autolink'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 gem 'devise'
 gem 'twitter_oauth', git: 'git://github.com/moomerman/twitter_oauth.git'
 gem 'therubyracer'
@@ -26,6 +26,9 @@ gem 'daemons'
 gem 'simplificator-rwebthumb', :git => "git://github.com/simplificator/rwebthumb.git"
 gem 'tweetstream'
 gem 'capistrano', '~> 2.15.4'
+# If you are using Rack 1.5.2
+gem 'rack', '~> 1.5.2', git: 'https://github.com/dkubb/rack.git', branch: 'fix/rack-1.5/rack-lock-mutex-usage'
+
 gem 'rack-utf8_sanitizer'
 gem 'newrelic_rpm'
 gem 'actionpack-xml_parser'

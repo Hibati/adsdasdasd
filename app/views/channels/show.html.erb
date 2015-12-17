@@ -11,7 +11,8 @@
     <li><%= link_to "#{t(:channel_feed)} (json)", channel_feed_index_path(@channel, :key => @key, :format => :json) %></li>
     <li><%= link_to "#{t(:channel_feed)} (xml)", channel_feed_index_path(@channel, :key => @key, :format => :xml) %></li>
     <li><%= link_to "#{t(:channel_feed)} (csv)", channel_feed_index_path(@channel, :key => @key, :format => :csv) %></li>
-		<li><%= link_to t(:import_data), channel_import_path(@channel) %></li>
+	<li><%= link_to t(:import_data), channel_import_path(@channel) %></li>
+	<li><%= link_to t(:addlogic_link), channel_path(channel.id, :anchor => 'addlogic'), class: 'btn btn-default' %></li>
   </ul>  
 
   <br /><br />
