@@ -1,11 +1,5 @@
 Thingspeak::Application.routes.draw do
-
-  resources :dlogics
-  resources :dlogics do
-    member do
-      get 'drive_logics'
-    end
-  end
+  
 
   # admin routes
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -18,6 +12,14 @@ Thingspeak::Application.routes.draw do
   # handle subdomain routes
   get '/', :to => 'subdomains#index', :constraints => { :subdomain => 'api' }
   get 'crossdomain', :to => 'subdomains#crossdomain', :constraints => { :subdomain => 'api' }
+
+  
+  get 'auth/:provider/callback', to: 'authentications#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'authentications#destroy', as: 'signout'
+  resources :tweets, only: [:new, :create]
+  resources :authentications, only: [:create, :destroy]
+
 
   root :to => 'pages#home'
 
@@ -104,8 +106,6 @@ Thingspeak::Application.routes.draw do
 
       get :drive_run
       get :drive_stop
-      get :drive_edit
-      get :drive_update
       
     end
     

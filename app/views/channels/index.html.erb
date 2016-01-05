@@ -29,12 +29,12 @@
                     </a>
                   </h4>
                   <div class="btn-group btn-group-sm hidden-xs hidden-sm">
-                    <%= link_to t(:private_link), channel_path(channel.id, :anchor => 'privateview'), class: 'btn btn-default' %>
+                    <%#= link_to t(:private_link), channel_path(channel.id, :anchor => 'privateview'), class: 'btn btn-default' %>
                     <%= link_to t(:public_link), channel_path(channel.id, :anchor => 'publicview'), class: 'btn btn-default' %>
-                    <%= link_to t(:settings_link), channel_path(channel.id, :anchor => 'channelsettings'), class: 'btn btn-default' %>
-                    <%= link_to t(:api_key_link), channel_path(channel.id, :anchor => 'apikeys'), class: 'btn btn-default' %>
-                    <%= link_to t(:data_import_link), channel_path(channel.id, :anchor => 'dataimport'), class: 'btn btn-default' %>
-                  	<%= link_to t(:logic_link), channel_path(channel.id, :anchor => 'addlogic'), class: 'btn btn-default' %>
+                    <%#= link_to t(:settings_link), channel_path(channel.id, :anchor => 'channelsettings'), class: 'btn btn-default' %>
+                    <%#= link_to t(:api_key_link), channel_path(channel.id, :anchor => 'apikeys'), class: 'btn btn-default' %>
+                    <%#= link_to t(:data_import_link), channel_path(channel.id, :anchor => 'dataimport'), class: 'btn btn-default' %>
+                  	<%= link_to t(:logic), channel_path(channel.id, :anchor => 'addlogic'), class: 'btn btn-default' %>
                   
                   </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203081741) do
+ActiveRecord::Schema.define(version: 20151229045921) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -134,6 +134,18 @@ ActiveRecord::Schema.define(version: 20151203081741) do
     t.string   "Event_6"
     t.string   "action_status"
     t.string   "jid_id"
+    t.string   "Event_7"
+    t.string   "Event_8"
+    t.string   "Then_do_these_things_5st"
+    t.string   "Event_9"
+    t.string   "Then_do_these_things_6st"
+    t.string   "Event_10"
+    t.string   "twitter_check"
+    t.string   "twitter_provider"
+    t.string   "twitter_uid"
+    t.string   "twitter_name"
+    t.string   "twitter_oauth_token"
+    t.string   "twitter_oauth_secret"
   end
 
   add_index "channels", ["latitude", "longitude"], name: "index_channels_on_latitude_and_longitude", using: :btree
@@ -142,6 +154,12 @@ ActiveRecord::Schema.define(version: 20151203081741) do
   add_index "channels", ["realtime_io_serial_number"], name: "index_channels_on_realtime_io_serial_number", using: :btree
   add_index "channels", ["slug"], name: "index_channels_on_slug", using: :btree
   add_index "channels", ["user_id"], name: "index_channels_on_user_id", using: :btree
+
+  create_table "checklogics", force: true do |t|
+    t.string   "channel_id_logics"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "commands", force: true do |t|
     t.string   "command_string"
@@ -259,6 +277,16 @@ ActiveRecord::Schema.define(version: 20151203081741) do
   end
 
   add_index "events", ["run_at"], name: "index_events_on_run_at", using: :btree
+
+  create_table "facebook_users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "failedlogins", force: true do |t|
     t.string   "login"
@@ -477,6 +505,28 @@ ActiveRecord::Schema.define(version: 20151203081741) do
   add_index "twitter_accounts", ["api_key"], name: "index_twitters_on_api_key", using: :btree
   add_index "twitter_accounts", ["twitter_id"], name: "index_twitters_on_twitter_id", using: :btree
   add_index "twitter_accounts", ["user_id"], name: "index_twitters_on_user_id", using: :btree
+
+  create_table "twitter_users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.string   "oauth_secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "twitterposts", force: true do |t|
+    t.string   "twitter_channel_id"
+    t.string   "twitter_check"
+    t.string   "twitter_provider"
+    t.string   "twitter_uid"
+    t.string   "twitter_name"
+    t.string   "twitter_oauth_token"
+    t.string   "twitter_oauth_secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "login",                                             null: false

@@ -1,12 +1,12 @@
 /* Layout */
 .con_1 {
-	max-width: 960px;
+	max-width: 480px;
 	margin: 0 auto;
 	padding: 1em;
 }
 
 .con_2 {
-	max-width: 960px;
+	max-width: 480px;
 	margin: 0 auto;
 	padding: 1em;
 }
@@ -18,8 +18,8 @@
 #drop-target-one-selete,
 #dd-files,
 #dd-images {
-	border: 5px dashed #dd0000;
-	border-radius: 10px;
+	border: 2px dashed #dd0000;
+	border-radius: 5px;
 	padding: 5em 2em;
 	text-align: center;
 }

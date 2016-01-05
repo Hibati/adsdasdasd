@@ -11,15 +11,16 @@ class ChannelsController < ApplicationController
   
   require 'json'   
   require 'open-uri'
-  require 'thread'
-  require 'temp_and_led_worker.rb'
-  require 'temp_and_led_air_worker.rb'
+  require 'led_worker.rb'
+  require 'air_worker.rb'
+  require 'led_air_worker.rb'
   require 'pm_and_led_worker.rb'
   
-  @@talw = []
-  @@talaw = []
-  @@palw = []
-    
+  @@allthr = []
+  @@thread = Array.new(1)
+  
+  
+  $g_channel_for_twitters = ''
     
   # get list of all realtime channels
   def realtime
@@ -93,6 +94,7 @@ class ChannelsController < ApplicationController
   def drive_run
     @channel = Channel.find(params[:id])
     @user_id = @channel.user_id
+    @eventemail = User.find(@user_id).email
     @apikeyvalue = ApiKey.where(channel_id: @channel.id, write_flag: 1).first.api_key
     when_this_stuff_happens = @channel.When_this_stuff_happens
     @event1 = @channel.Event_1
@@ -105,62 +107,76 @@ class ChannelsController < ApplicationController
     @event5 = @channel.Event_5
     then_do_these_things_4st = @channel.Then_do_these_things_4st
     @event6 = @channel.Event_6
-    
-    my_thread_id = ""
-    if @channel.jid_id == ""
-      if when_this_stuff_happens == 'Temperature' && then_do_these_things_1st == "Led" && then_do_these_things_2st == "Airconditioning"
-        puts "====================== controller Temperature & Led & Airconditioning ============================"
-        @event5e = User.find(@user_id).email
-        @@talaw << Thread.new do
-          my_thread_id = Thread.current.object_id
-          ob = TempAndLedAirWorker.new
-          ob.perform(@channel.id, @event1, @event2, @event3, @event4, @event5e, @event6, @apikeyvalue)
-        end
-      elsif when_this_stuff_happens == 'Temperature' && then_do_these_things_1st == "Led"
-        puts "====================== controller Temperature & Led ============================"
-        @@talw << Thread.new do
-          my_thread_id = Thread.current.object_id
-          ob = TempAndLedWorker.new
-          ob.perform(@channel.id, @event1, @event2, @event3, @apikeyvalue)
-        end
-      elsif when_this_stuff_happens == 'PM2.5' && then_do_these_things_1st == "Led"
-        puts "====================== controller PM2.5 ============================"
-        @@palw << Thread.new do
-          my_thread_id = Thread.current.object_id
-          ob = PmAndLedWorker.new
-          @apikeyvalue2 = ApiKey.where(channel_id: "33", write_flag: 1).first.api_key
-          ob.perform(@channel.id, @event1, @event2, @event3, @apikeyvalue2)
-        end
-      end
-      Channel.find(params[:id]).update(:action_status => 'running', :jid_id => my_thread_id ) 
+    @event7 = @channel.Event_7
+  
+    @twitter_check = @channel.twitter_check
+
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = Rails.application.config.twitter_key
+      config.consumer_secret     = Rails.application.config.twitter_secret
+      config.access_token        = @channel.twitter_oauth_token
+      config.access_token_secret = @channel.twitter_oauth_secret
     end
-  
-  
+   
+    if Checklogic.all.size <= 30
+     my_thread_id = ""
+      if @channel.jid_id == ""
+        if then_do_these_things_1st == "Led" and then_do_these_things_2st == "Airconditioning"
+          puts "====================== controller Temperature & Led & Airconditioning ============================"
+          @@allthr << Thread.new do
+            my_thread_id = Thread.current.object_id
+            ob = LedAirWorker.new
+            ob.perform(@channel.id, @event1, @event2, @event3, @event4, @event6, @event7, @apikeyvalue, @client, @twitter_check, @eventemail)
+          end
+        elsif when_this_stuff_happens == 'PM2.5' and then_do_these_things_1st == "Led"
+          puts "====================== controller PM2.5 ============================"
+          @@allthr << Thread.new do
+            my_thread_id = Thread.current.object_id
+            ob = PmAndLedWorker.new
+            @apikeyvalue2 = ApiKey.where(channel_id: "33", write_flag: 1).first.api_key
+            ob.perform(@channel.id, @event1, @event2, @event3, @apikeyvalue2)
+          end
+        elsif then_do_these_things_1st == "Led"
+          puts "====================== controller & Led ============================"
+          @@allthr << Thread.new do
+            my_thread_id = Thread.current.object_id
+            ob = LedWorker.new
+            ob.perform(@channel.id, @event1, @event2, @event3, @event6, @event7, @apikeyvalue, @client, @twitter_check, @eventemail)
+          end
+        elsif then_do_these_things_1st == "Airconditioning"
+          puts "====================== controller & Led ============================"
+          @@allthr << Thread.new do
+            my_thread_id = Thread.current.object_id
+            ob = AirWorker.new
+            ob.perform(@channel.id, @event1, @event2, @event4, @event6, @event7, @apikeyvalue, @client, @twitter_check, @eventemail)
+          end
+        end
+        Channel.find(params[:id]).update(:action_status => 'running', :jid_id => my_thread_id)
+        Checklogic.create(:channel_id_logics => params[:id])
+      end
+    end
+    
   end
   
   def drive_stop
     @channel = Channel.find(params[:id])
-    when_this_stuff_happens = @channel.When_this_stuff_happens
-    then_do_these_things_1st = @channel.Then_do_these_things_1st
-    then_do_these_things_2st = @channel.Then_do_these_things_2st
-    then_do_these_things_3st = @channel.Then_do_these_things_3st
-    then_do_these_things_4st = @channel.Then_do_these_things_4st
     job_test = Channel.find(params[:id]).jid_id
-    
-    if when_this_stuff_happens == 'Temperature' && then_do_these_things_1st == "Led" && then_do_these_things_2st == "Airconditioning"
-      @@talaw.each { |thr| thr.exit if thr.object_id.to_s == job_test }
-    elsif when_this_stuff_happens == 'Temperature' && then_do_these_things_1st == "Led"
-      @@talw.each { |thr| thr.exit if thr.object_id.to_s == job_test }
-    elsif when_this_stuff_happens == 'PM2.5' && then_do_these_things_1st == "Led"
-      @@palw.each { |thr| thr.exit if thr.object_id.to_s == job_test }
+    if @channel.action_status == "running"
+      @@allthr.each do |thr|
+        if thr.object_id.to_s == job_test
+          thr.exit
+        end
+      end
+      $cron_thread.each do |thr|
+        if thr.object_id.to_s == job_test
+          thr.exit
+        end
+      end
+      Channel.find(params[:id]).update(:action_status => 'stop', :jid_id => "" )
+      if(destroyob = Checklogic.find_by(channel_id_logics: params[:id]))
+        destroyob.destroy
+      end
     end
-    
-    $cron_thread_talwb.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
-    $cron_thread_palwb.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
-    #$cron_thread_talawb.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
-      
-    Channel.find(params[:id]).update(:action_status => 'stop', :jid_id => "" )
-     
   end
   
   def addlogic
@@ -246,6 +262,12 @@ class ChannelsController < ApplicationController
   end
 
   def show
+    
+    if Checklogic.all.size > 30
+      flash[:notice] = "邏輯總數量已達上限"
+    end
+    
+    $g_channel_for_twitters = Channel.find(params[:id]) if params[:id]
     @channel = Channel.find(params[:id]) if params[:id]
 
     @title = @channel.name
@@ -356,9 +378,9 @@ class ChannelsController < ApplicationController
     # get the current user or find the user via their api key
     @user = current_user || User.find_by_api_key(get_apikey)
     @channel = @user.channels.find(params[:id])
-    job_test = @channel.jid_id
-    @@thr.each { |thr| thr.exit if thr.object_id.to_s == job_test }
-    $cron_thread.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
+    #job_test = @channel.jid_id
+    #@@thr.each { |thr| thr.exit if thr.object_id.to_s == job_test }
+    #$cron_thread.each { |cron_thr| cron_thr.exit if cron_thr.object_id.to_s == job_test}
       
     @channel.destroy
     respond_to do |format|
@@ -668,7 +690,7 @@ class ChannelsController < ApplicationController
 
     # only allow these params
     def channel_params
-      params.require(:channel).permit(:name, :url, :description, :metadata, :latitude, :longitude, :field1, :field2, :field3, :field4, :field5, :field6, :field7, :field8, :elevation, :public_flag, :status, :video_id, :video_type, :When_this_stuff_happens, :Event_1, :Event_2, :Then_do_these_things_1st, :Event_3, :Then_do_these_things_2st, :Event_4, :Then_do_these_things_3st, :Event_5, :Then_do_these_things_4st, :Event_6)
+      params.require(:channel).permit(:name, :url, :description, :metadata, :latitude, :longitude, :field1, :field2, :field3, :field4, :field5, :field6, :field7, :field8, :elevation, :public_flag, :status, :video_id, :video_type, :When_this_stuff_happens, :Event_1, :Event_2, :Then_do_these_things_1st, :Event_3, :Then_do_these_things_2st, :Event_4, :Then_do_these_things_3st, :Event_5, :Then_do_these_things_4st, :Event_6, :Event_7, :Event_8, :Then_do_these_things_5st, :Event_9, :Then_do_these_things_6st, :Event_10)
     end
 
     # determine if the date can be parsed

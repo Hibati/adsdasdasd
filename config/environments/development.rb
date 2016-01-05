@@ -25,5 +25,8 @@ Thingspeak::Application.configure do
 
   config.assets.debug = true
 
+
+  config.twitter_key = "ByzXZVS8H54vXN7wdpRuAf0Ah"
+  config.twitter_secret = "WlZgUIvNATpxg62SxMvnvME66QC5IDbpJ2b5PQQpKVZIdtNzC7"
 end
 

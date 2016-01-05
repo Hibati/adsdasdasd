@@ -33,6 +33,11 @@
         <td class="left"><%= t(:metadata).capitalize %></td>
         <td><%= c.text_area :metadata, :cols => 30, :rows => 4 %></td>
       </tr>
+      <tr>
+        <td class="left"><%= t(:field) %> 1</td>
+        <td><%= c.text_field :field1, :class => 'field' %></td>
+      </tr>
+      
       <%= fields_for :tags do |t| %>
         <tr>
           <td class="left"><%= t(:tags) %></td>

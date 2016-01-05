@@ -25,19 +25,22 @@ create_option_for_air = ->
       $('#air_selete').append( $("<option></option>").attr("value", air[i]).text(air[i]))
 
 create_option_for_times = ->
-    times = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    times = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     for i in [0...times.length]
       $('#times_selete').append( $("<option></option>").attr("value", times[i]).text(times[i]))
 
-
-
-
-
+controller_tiwwers_select = ->
+  check_value = document.getElementById('channel_twitter_name').value
+  if check_value == 'Null' || check_value == ''
+    alert("請先登入推特")
+    history.go(0)
+  else
+    document.getElementById('channel_twitter_check').value = "1"
 
 delete_all_logic = ->
     $('.container_sw').hide()
     $('.container_temperature').hide()
-    $('.container_uv').hide()
+    $('.container_luminosity').hide()
     $('.container_sound').hide()
     $('.container_gas').hide()
     $('.container_ir').hide()
@@ -47,8 +50,6 @@ delete_all_logic = ->
     $('.temp_select').hide()
     $('.dropdrap').hide()
     $('.dropdraptwo').hide()
-    $('.drop-target-one-selete').hide()
-    $('.drop-target-two-selete').hide()
  
 select_option_for_temp = ->
    $('#temp_selete').change (e) ->
@@ -58,9 +59,12 @@ select_option_for_temp = ->
    
 $ ->
     if $('#channel_When_this_stuff_happens').val() == "SW Sensor"
+      document.getElementById('channel_When_this_stuff_happens').value = "SW"
+      document.getElementById('channel_field1').value = "SW"
+      $('.container_swc').toggle()
       delete_all_logic()
       $('.container_sw').toggle()
-      $('.drop-target-one').toggle()
+      $('.dropdrap').toggle()
       dropZoneone()
     else if $('#channel_When_this_stuff_happens').val() == "Temperature Sensor" || $('#channel_When_this_stuff_happens').val() == "Temperature"
       document.getElementById('channel_When_this_stuff_happens').value = "Temperature"
@@ -74,27 +78,37 @@ $ ->
       $('.container_led').toggle()
       $('.dropdrap').toggle()
       dropZoneone()
-    else if $('#channel_When_this_stuff_happens').val() == "UV Sensor"
+    else if $('#channel_When_this_stuff_happens').val() == "Luminosity Sensor"
+      document.getElementById('channel_When_this_stuff_happens').value = "Luminosity"
+      document.getElementById('channel_field1').value = "Luminosity"
       delete_all_logic()
-      $('.container_uv').toggle()
+      $('.container_luminosity').toggle()
       $('.dropdrap').toggle()
       dropZoneone()
     else if $('#channel_When_this_stuff_happens').val() == "Sound Sensor"
+      document.getElementById('channel_When_this_stuff_happens').value = "Sound"
+      document.getElementById('channel_field1').value = "Sound"
       delete_all_logic()
       $('.container_sound').toggle()
       $('.dropdrap').toggle()
       dropZoneone()
     else if $('#channel_When_this_stuff_happens').val() == "Gas Sensor"
+      document.getElementById('channel_When_this_stuff_happens').value = "Gas"
+      document.getElementById('channel_field1').value = "Gas"
       delete_all_logic()
       $('.container_gas').toggle()
       $('.dropdrap').toggle()
       dropZoneone()
     else if $('#channel_When_this_stuff_happens').val() == "Switch Sensor"
+      document.getElementById('channel_When_this_stuff_happens').value = "Switch"
+      document.getElementById('channel_field1').value = "Switch"
       delete_all_logic()
       $('.container_switch').toggle()
       $('.dropdrap').toggle()
       dropZoneone()
     else if $('#channel_When_this_stuff_happens').val() == "Pressure Sensor"
+      document.getElementById('channel_When_this_stuff_happens').value = "Pressure"
+      document.getElementById('channel_field1').value = "Pressure"
       delete_all_logic()
       $('.container_pressure').toggle()
       $('.dropdrap').toggle()
@@ -120,16 +134,22 @@ controller_air_select = ->
 
 
 controller_letter_select = ->
-  document.getElementById('channel_Then_do_these_things_3st').value = "Letter"
+  document.getElementById('channel_Event_8').value = "Letter"
   
 
 controller_times_select = ->
   document.getElementById('channel_Then_do_these_things_4st').value = "Times"
-  document.getElementById('channel_Event_6').value = "1"
+  document.getElementById('channel_Event_6').value = "Sunday"
   create_option_for_times()
   $('#times_selete').change (e) ->
     document.getElementById('channel_Event_6').value = $( "#times_selete" ).val()
   $('.coltimesset').toggle()
+  $('#date_hours').change (e) ->
+    document.getElementById('channel_Event_7').value = $( "#date_hours").val() + ":" + $( "#date_minutes").val()
+  $('#date_minutes').change (e) ->
+    document.getElementById('channel_Event_7').value = $( "#date_hours").val() + ":" + $( "#date_minutes").val()
+    
+  
 
 dropZoneone = ->
 
@@ -162,7 +182,8 @@ dropZoneone = ->
         
       else if all_value == 'Times'
         controller_times_select()
-        
+      else if all_value == 'Twitters'
+        controller_tiwwers_select()
       return
     i++
   # Event Listener for when the dragged element is over the drop zone.

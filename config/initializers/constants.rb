@@ -28,5 +28,6 @@ CONSUMER_SECRET = ''
 RESET_PASSWORD_URL = 'http://127.0.0.1:3000//users/reset_password/'
 
 # allow only these additional locales (use downcase, easier to parse)
-ALLOWED_LOCALES = ['pt-br','it']
+# 注意，這邊要小寫，不要問我為什麼，解釋很麻煩
+ALLOWED_LOCALES = ['zh-tw','pt-br','it']
 

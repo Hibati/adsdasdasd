@@ -70,16 +70,18 @@ class ApplicationController < ActionController::Base
   # get the locale, but don't fail if header value doesn't exist
   def get_locale
     locale = get_header_value('HTTP_ACCEPT_LANGUAGE')
-    flash[:notice] = locale
+    flash[:notice] = ALLOWED_LOCALES
     if locale and ALLOWED_LOCALES.include?(locale[0..1].downcase)
-      locale = locale[0..1].downcase
+      locale = locale[0..1]
     elsif locale and ALLOWED_LOCALES.include?(locale[0..4].downcase)
-      locale = locale[0..4].downcase
+      locale = locale[0..4]
     else
       locale =  I18n.default_locale
     end
-
+    
+    
     return locale
+    
   end
 
   protected
@@ -139,7 +141,7 @@ class ApplicationController < ActionController::Base
     def set_apps_menu; @menu = 'apps'; end
     def set_plugins_menu; @menu = 'plugins'; end
     def set_devices_menu; @menu = 'devices'; end
-    def set_locale_menu; @menu = 'locale'; end
+    
 
     def require_user
       logger.info "Require User"

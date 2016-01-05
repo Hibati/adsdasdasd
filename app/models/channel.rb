@@ -91,6 +91,32 @@ class Channel < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 15
 
+  # connent with twitter
+  #
+  def self.from_omniauth(auth)
+    channels = Channel.find($g_channel_for_twitters)
+    channels.update(
+      :twitter_check => '0',
+      :twitter_provider => auth.provider,
+      :twitter_uid => auth.uid,
+      :twitter_name => auth.info.name,
+      :twitter_oauth_token => auth.credentials.token,
+      :twitter_oauth_secret => auth.credentials.secret
+      )
+  end
+  
+  def self.from_omniauth_delete
+    channels = Channel.find($g_channel_for_twitters)
+    channels.update(
+      :twitter_check => '0',
+      :twitter_provider => nil,
+      :twitter_uid => nil,
+      :twitter_name => nil,
+      :twitter_oauth_token => nil,
+      :twitter_oauth_secret => nil
+      )
+  end
+
   # replace channel values: %%channel_1417_field_1%% is replaced with appropriate value
   def self.replace_values(input, user)
     return input.gsub(/%%channel_\d+_field_\d+%%/) { |string| Channel.value_from_string(string, user) }

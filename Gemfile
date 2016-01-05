@@ -49,6 +49,8 @@ gem 'coffee-script'
 
 gem 'execjs'
 gem 'puma'
+gem 'twitter'
+gem 'omniauth-twitter'
 
 # assets
 gem "sass-rails", "4.0.2"

@@ -20,7 +20,6 @@ class DevicesController < ApplicationController
     end
     
     def create
-        feed = Feed.new
         @user = current_user || User.find_by_api_key(get_apikey)
         
         channel = @user.channels.create({ 
@@ -38,6 +37,12 @@ class DevicesController < ApplicationController
           :Event_5 => 'Null',
           :Then_do_these_things_4st => 'Null',
           :Event_6 => 'Null',
+          :Event_7 => 'Null',
+          :Event_8 => 'Null',
+          :Then_do_these_things_5st => 'Null',
+          :Event_9 => 'Null',
+          :Then_do_these_things_6st => 'Null',
+          :Event_10 => 'Null',
           :action_status => 'stop',
           :public_flag => 'true',
           :jid_id => "",

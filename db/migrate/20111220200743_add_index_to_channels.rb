@@ -9,3 +9,7 @@ class AddIndexToChannels < ActiveRecord::Migration
     remove_index :channels, :name => 'channels_public_viewable'
   end
 end
+
+
+
+     

@@ -2,6 +2,97 @@
 
 <%= render :partial => 'channelinfo', :locals => { :zone => "public" } %>
 
+
+
+<div align="center">
+  <table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5'>
+      <tr>
+        <% if @channel.twitter_name != nil %>
+          <td align="center"><button type="button" class="btn btn-info disabled">Twitter</button></td>
+          <td align="center">Hi, <strong><%= @channel.twitter_name %></strong></td>
+          <% if @channel.action_status == 'stop'%>
+            <td align="center"><%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-success btn-sm" %></td>
+          <% end %>
+        <% else %>
+          <td align="center">Twitter: </td>
+          <td align="center"><%= link_to "Sign in", "/auth/twitter", id: "sign_in", class: "btn btn-success btn-sm" %></td>
+        <% end %>
+      </tr>
+      <br> 
+      
+      <%= form_for @channel do |c| %>
+        <tr>
+          <td align="center"><%= @channel.id %></td>
+          <td align="center"><%= image_tag(@channel.When_this_stuff_happens + '.png', width: '50', height: '50') %> </td>
+          <% case @channel.Event_1 %>
+            <% when '>' %>
+              <td align="center"><%= image_tag('mt.png', width: '30', height: '30') %></td>
+            <% when '>=' %>
+              <td align="center"><%= image_tag('mte.png', width: '30', height: '30') %></td>
+            <% when '=' %>
+              <td align="center"><%= image_tag('equal.png', width: '30', height: '30') %></td>
+            <% when '<' %>
+              <td align="center"><%= image_tag('lt.png', width: '30', height: '30') %></td>
+            <% when '<=' %>
+              <td align="center"><%= image_tag('lte.png', width: '30', height: '30') %></td>
+          <% end %>
+          <td align="center"><%= image_tag(@channel.Event_2 + '.png', width: '50', height: '50') %></td>
+          
+          <% if @channel.Then_do_these_things_1st != "Null" %>
+            <td align="center"><%= image_tag(@channel.Then_do_these_things_1st + '.png', width: '50', height: '50') %></td>
+            <td align="center"><%= image_tag(@channel.Event_3 + '.png', width: '50', height: '50') %></td>
+          <% end %>
+          
+          <% if @channel.Then_do_these_things_2st != "Null" %>
+            <td align="center"><%= image_tag(@channel.Then_do_these_things_2st + '.png', width: '50', height: '50') %></td>
+            <td align="center"><%= image_tag(@channel.Event_4 + '.png', width: '50', height: '50') %></td>
+          <% end %>
+          
+          <% if @channel.Then_do_these_things_3st != "Null" %>
+            <td align="center"><%= image_tag(@channel.Then_do_these_things_3st + '.png', width: '50', height: '50') %></td>
+            <td align="center"><%= image_tag(@channel.Event_5 + '.png', width: '50', height: '50') %></td>
+          <% end %>
+          
+          <% if @channel.Then_do_these_things_4st != "Null" %>
+            <td align="center"><%= image_tag(@channel.Then_do_these_things_4st + '.png', width: '50', height: '50') %></td>
+            <td align="center"><%= image_tag(@channel.Event_6 + '.png', width: '40', height: '40') %></td>
+            <td align="center"><%= @channel.Event_7 %></td>
+          <% end %>
+          <% if @channel.Then_do_these_things_5st != "Null" %>
+            <td align="center"><%= image_tag(@channel.Then_do_these_things_5st + '.png', width: '50', height: '50') %></td>
+            <td align="center"><%= image_tag(@channel.Event_9 + '.png', width: '50', height: '50') %></td>
+          <% end %>
+          <% if @channel.Then_do_these_things_6st != "Null" %>
+            <td align="center"><%= image_tag(@channel.Then_do_these_things_6st + '.png', width: '50', height: '50') %></td>
+            <td align="center"><%= image_tag(@channel.Event_10 + '.png', width: '50', height: '50') %></td>
+          <% end %>
+          <% if @channel.action_status == 'stop' %>
+            <td align="center"><%= link_to "Running", { :controller => 'channels', :action => 'drive_run'}, class: 'btn btn-danger btn-sm' %></td>
+          <% else %>
+            <td align="center"><%= link_to "Stop", { :controller => 'channels', :action => 'drive_stop'}, class: 'btn btn-danger btn-sm' %></td> 
+          <% end %>
+        </tr>
+      <% end %>
+      <br> 
+      
+      
+      <tr>
+        <% if @channel.twitter_check == '1' or @channel.Event_8 != 'Null' %>
+          <td align="center"><button type="button" class="btn btn-info disabled">Service</button></td>
+          <% if @channel.twitter_check == '1'%>
+            <td align="center"><%= image_tag('Twitters.png', width: '30', height: '30') %></td>
+            <td align="center"><%= image_tag('Checked.png', width: '30', height: '30') %></td>
+          <% end %>
+          <% if @channel.Event_8 != nil and @channel.Event_8 != 'Null' %>
+            <td align="center"><%= image_tag('Letter.png', width: '40', height: '40') %></td>
+            <td align="center"><%= image_tag('Checked.png', width: '30', height: '30') %></td>
+          <% end %>
+        <% end %>
+      </tr>
+  </table>
+</div>
+
+
 <div class="CB">
   <div class="col-xs-6 col-sm-6">
     <div id="public_dialog0" class="column"></div>
@@ -10,31 +101,6 @@
     <div id="public_dialog1" class="column"></div>
   </div>
 </div>
-
-<div align="center">
-  <table style="border:3px #FFAC55 double;padding:5px;" rules="all" cellpadding='5'>
-
-      <%= form_for @channel do |c| %>
-        <tr>
-          <td align="center"><%= @channel.id %></td>
-          <td align="center"><%= @channel.When_this_stuff_happens %></td>
-          <td align="center"><%= @channel.Event_1 %></td>
-          <td align="center"><%= @channel.Event_2 %></td>
-          <td align="center"><%= @channel.Then_do_these_things_1st %></td>
-          <td align="center"><%= @channel.Event_3 %></td>
-          <td align="center"><%= @channel.Then_do_these_things_2st %></td>
-          <td align="center"><%= @channel.Event_4 %></td>
-          <td align="center"><%= @channel.Then_do_these_things_3st %></td>
-          <td align="center"><%= @channel.Event_5 %></td>
-          <td align="center"><%= @channel.Then_do_these_things_4st %></td>
-          <td align="center"><%= @channel.Event_6 %></td>
-          <td align="center"><%= link_to "Running", { :controller => 'channels', :action => 'drive_run'}, class: 'btn btn-danger' %></td>
-          <td align="center"><%= link_to "Stop", { :controller => 'channels', :action => 'drive_stop'}, class: 'btn btn-danger' %></td> 
-        </tr>
-      <% end %>
-  </table>
-</div>
-
 
 <div class="commentlink" >
   <% if !current_user %>
